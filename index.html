@@ -25,7 +25,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/myphoto.png" alt="Han Fei" width="80">
+          <img src="./assets/files/photo.jfif" alt="Han Fei" width="80">
         </figure>
 
         <div class="info-content">
@@ -97,11 +97,18 @@
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="#" class="social-link">
+            <a href="https://github.com/HanFei-hz" class="social-link" target="_blank">
               <ion-icon name="logo-github"></ion-icon>
             </a>
           </li>
 
+          <li class="social-item">
+            <a href="https://www.researchgate.net/profile/Fei-Han-60" class="social-link" target="_blank">
+              <ion-icon name="document-text-outline"></ion-icon>
+            </a>
+          </li>
+
+          <!--
           <li class="social-item">
             <a href="#" class="social-link">
               <ion-icon name="logo-linkedin"></ion-icon>
@@ -113,8 +120,16 @@
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
+          -->
 
         </ul>
+
+        <div class="separator"></div>
+
+        <a href="./assets/files/CV-Fei.pdf" class="form-btn" style="display:flex;justify-content:center;gap:10px;text-decoration:none;" download>
+          <ion-icon name="download-outline"></ion-icon>
+          <span>Download CV</span>
+        </a>
 
       </div>
 
@@ -166,11 +181,11 @@
 
         <section class="about-text">
           <p>
-            I am currently a Ph.D. student in Computer Science and Technology at Westlake University, focusing on bionic robot motion planning. My research explores the intersection of robotics, deep reinforcement learning, and hydrodynamics to design efficient bio-inspired propulsion systems. Starting in April 2026, I will expand my research as a Visiting Scholar at Penn State University.
+            I am currently a Ph.D. student in Computer Science and Technology at Westlake University, focusing on bionic robot motion planning. My research explores the intersection of robotics, deep reinforcement learning, and hydrodynamics to design efficient bio-inspired propulsion systems. From May 9 to October 9, 2026, I am expanding my research as a Visiting Scholar at Penn State University.
           </p>
 
           <p>
-            Beyond academic research and programming in Python, I have maintained a lifelong passion for physical training, badminton, and singing—pursuits I have genuinely enjoyed since childhood. I also had the wonderful experience of performing with the Xinyue Choir for a year. In my free time, I love capturing the world through photography and refining images using Photoshop.
+            Beyond academic research and programming in Python, I have maintained a lifelong passion for physical training, badminton, and singing—pursuits I have genuinely enjoyed since childhood. I also had the wonderful experience of performing with the Xinyue Choir for a year. In my free time, I love capturing the world through photography.
           </p>
         </section>
 
@@ -250,6 +265,7 @@
         </section>
 
 
+        <!--
         <section class="testimonials">
 
           <h3 class="h3 testimonials-title">Testimonials</h3>
@@ -368,6 +384,7 @@
           </section>
 
         </div>
+        -->
 
 
         <section class="clients">
@@ -377,38 +394,20 @@
           <ul class="clients-list has-scrollbar">
 
             <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
+              <a href="https://i4fsi.lab.westlake.edu.cn/" target="_blank">
+                <img src="./assets/images/logo-1-color.png" alt="Westlake University i4FSI Lab">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="https://sites.psu.edu/libr/team/" target="_blank">
+                <img src="./assets/images/logo-2-color.png" alt="Penn State LIBR Lab">
               </a>
             </li>
 
             <li class="clients-item">
               <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
+                <img src="./assets/images/logo-3-color.png" alt="Shenyang Institute of Automation">
               </a>
             </li>
 
@@ -703,169 +702,23 @@
           </div>
 
           <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="ai & python">
-              <a href="#">
+            <li class="project-item active" data-filter-item data-category="ai & python">
+              <a href="./assets/files/rl_explorer.html" target="_blank">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                  <img src="./assets/images/project-4.png" alt="RL Explorer" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Data Simulation</h3>
+                <h3 class="project-title">RL Knowledge Graph</h3>
 
                 <p class="project-category">AI & Python</p>
 
               </a>
             </li>
-
-            <li class="project-item  active" data-filter-item data-category="robotics">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Bio-inspired Prototype</h3>
-
-                <p class="project-category">Robotics</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="photography">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Urban Retouching</h3>
-
-                <p class="project-category">Photography</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="ai & python">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Algorithm Optimization</h3>
-
-                <p class="project-category">AI & Python</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="robotics">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Hydrodynamics Model</h3>
-
-                <p class="project-category">Robotics</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="photography">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Nature Shots</h3>
-
-                <p class="project-category">Photography</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="robotics">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Mechanism Design</h3>
-
-                <p class="project-category">Robotics</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="ai & python">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Computer Vision Script</h3>
-
-                <p class="project-category">AI & Python</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="photography">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Photoshop Compositions</h3>
-
-                <p class="project-category">Photography</p>
-
-              </a>
-            </li>
-
           </ul>
 
         </section>
@@ -963,20 +816,6 @@
 
                   <p class="blog-text">
                     Reflecting on the joy of singing and the harmony of vocal performances outside the lab.
-                    Reflecting on the joy of singing 
-and the harmony of vocal performances outside the lab.
-                    Reflecting on the joy of singing 
-and the harmony of vocal performances outside the lab.
-                    Reflecting on the joy of singing 
-and the harmony of vocal performances outside the lab.
-                    Reflecting on the joy of singing 
-and the harmony of vocal performances outside the lab.
-                    Reflecting on the joy of singing 
-and the harmony of vocal performances outside the lab.
-                    Reflecting on the joy of singing 
-and the harmony of vocal performances outside the lab.
-                    Reflecting on the joy of singing 
-and the harmony of vocal performances outside the lab.
                   </p>
 
                 </div>
@@ -1096,7 +935,7 @@ and the harmony of vocal performances outside the lab.
 
           <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="#" class="form" data-form>
+          <form action="https://formspree.io/f/your-form-id" class="form" data-form method="POST">
 
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>

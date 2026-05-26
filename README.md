@@ -1,43 +1,22 @@
-# vCard - Personal portfolio
+# Han Fei - Personal Portfolio
 
-![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/vcard-personal-portfolio)
-![GitHub stars](https://img.shields.io/github/stars/codewithsadee/vcard-personal-portfolio?style=social)
-![GitHub forks](https://img.shields.io/github/forks/codewithsadee/vcard-personal-portfolio?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-[![YouTube Video Views](https://img.shields.io/youtube/views/SoxmIlgf2zM?style=social)](https://youtu.be/SoxmIlgf2zM)
+![GitHub repo size](https://img.shields.io/github/repo-size/HanFei-hz/HanFei-hz.github.io)
 
-vCard is a fully responsive personal portfolio website, responsive for all devices, built using HTML, CSS, and JavaScript.
+Personal portfolio website for Han Fei — Ph.D. student in Computer Science and Technology at Westlake University, currently Visiting Scholar at Penn State University.
 
-## Demo
+Built with HTML, CSS, and JavaScript. Fully responsive, dark theme.
 
-![vCard Desktop Demo](./website-demo-image/desktop.png "Desktop Demo")
-![vCard Mobile Demo](./website-demo-image/mobile.png "Mobile Demo")
+## Sections
 
-## Prerequisites
+- **About** — Research interests, personal background, and services
+- **Resume** — Education, experience, publications, and skills
+- **Portfolio** — Project showcase
+- **Blog** — Research notes and personal articles
+- **Contact** — Get in touch
 
-Before you begin, ensure you have met the following requirements:
+## Visit
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
-
-## Installing vCard
-
-To install **vCard**, follow these steps:
-
-Linux and macOS:
-
-```bash
-sudo git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
-
-Windows:
-
-```bash
-git clone https://github.com/codewithsadee/vcard-personal-portfolio.git
-```
-
-## Contact
-
-If you want to contact me you can reach me at [Twitter](https://www.x.com/codewithsadee_).
+[https://hz.github.io](https://hz.github.io)
 
 ## License
 
