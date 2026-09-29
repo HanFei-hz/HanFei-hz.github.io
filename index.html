@@ -1,1050 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Han Fei - Personal Portfolio</title>
+  <title>Fei Han · Bio-inspired Swimming Robots</title>
+  <meta name="description" content="Fei Han — Ph.D. student at Westlake University. Learning-based control and hydrodynamic modeling for bio-inspired swimming robots.">
+  <meta property="og:title" content="Fei Han · Bio-inspired Swimming Robots">
+  <meta property="og:description" content="Robots that learn to swim with unsteady flow: physical learning platforms, data-driven hydrodynamics, safe RL and planning.">
+  <meta property="og:image" content="https://hanfei-hz.github.io/assets/img/shoal.jpg">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <script>
+    // Apply the saved theme before first paint to avoid a flash.
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/main.css">
 </head>
 
 <body>
 
-  <main>
+  <!-- SVG icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v12H4z M4 7l8 6 8-6"/></symbol>
+    <symbol id="i-scholar" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.2V16c0 1.7 2.7 3.5 6 3.5s6-1.8 6-3.5v-3.8l-6 3.3-6-3.3z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></symbol>
+    <symbol id="i-rg" viewBox="0 0 24 24"><path fill="currentColor" d="M3 3h18v18H3V3zm5.3 4.2c-1.7 0-2.6.9-2.6 2.9v4.7c0 1.4.5 2 1.6 2h1.6v-1.2h-.9c-.6 0-.8-.3-.8-1v-4.4c0-1.3.4-1.8 1.2-1.8.7 0 1 .4 1 1.2V17h1.5V9.9c0-1.8-.8-2.7-2.6-2.7zm6.8 0c-1.6 0-2.5.9-2.5 2.6v4.6c0 1.8.9 2.7 2.5 2.7s2.5-.9 2.5-2.7v-2.1h-2.4v1.1h1v1.1c0 .9-.4 1.3-1.1 1.3s-1.1-.4-1.1-1.3V9.8c0-.9.4-1.3 1.1-1.3s1.1.4 1.1 1.3v.6h1.4v-.6c0-1.7-.9-2.6-2.5-2.6z"/></symbol>
+    <symbol id="i-cv" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 3H6v18h12V7l-4-4zm0 0v4h4M9 13h6M9 17h6M9 9h2"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14 3H6v18h12V7l-4-4zm0 0v4h4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m8 8-4 4 4 4m8-8 4 4-4 4m-6 3 4-14"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 9H5v6h4V9m0 6c0 2-1 3-3 3m12-9h-3v6h4V9m0 6c0 2-1 3-3 3"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </svg>
 
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/files/photo.jfif" alt="Han Fei" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Han Fei">Han Fei</h1>
-
-          <p class="title">Robotics & Bionics Researcher</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:hanfei@westlake.edu.cn" class="contact-link">hanfei@westlake.edu.cn</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Availability</p>
-
-              <time datetime="2026-04-01">Since April 2026</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Westlake University, Hangzhou, China</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://github.com/HanFei-hz" class="social-link" target="_blank">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.researchgate.net/profile/Fei-Han-60" class="social-link" target="_blank">
-              <ion-icon name="document-text-outline"></ion-icon>
-            </a>
-          </li>
-
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <a href="./assets/files/CV-Fei.pdf" class="form-btn" style="display:flex;justify-content:center;gap:10px;text-decoration:none;" download>
-          <ion-icon name="download-outline"></ion-icon>
-          <span>Download CV</span>
-        </a>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <div class="main-content">
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top">Fei Han</a>
+      <nav class="nav" id="nav">
+        <a href="#news">News</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#videos">Videos</a>
+        <a href="#experience">Experience</a>
+        <a href="#life">Beyond the Lab</a>
       </nav>
-
-
-
-
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            I am currently a Ph.D. student in Computer Science and Technology at Westlake University, focusing on bionic robot motion planning. My research explores the intersection of robotics, deep reinforcement learning, and hydrodynamics to design efficient bio-inspired propulsion systems. From May 9 to October 9, 2026, I am expanding my research as a Visiting Scholar at Penn State University.
-          </p>
-
-          <p>
-            Beyond academic research and programming in Python, I have maintained a lifelong passion for physical training, badminton, and singing—pursuits I have genuinely enjoyed since childhood. I also had the wonderful experience of performing with the Xinyue Choir for a year. In my free time, I love capturing the world through photography.
-          </p>
-        </section>
-
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg" alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Robotics & Bionics</h4>
-
-                <p class="service-item-text">
-                  Designing and simulating bio-inspired robots with a strong focus on hydrodynamics and mechanical structures.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">AI & Python Development</h4>
-
-                <p class="service-item-text">
-                  Building efficient algorithms using Python and integrating advanced AI models for academic research.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography & Retouching</h4>
-
-                <p class="service-item-text">
-                  Capturing high-quality visuals and refining them using professional Photoshop techniques.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Sports & Music</h4>
-
-                <p class="service-item-text">
-                  Staying active through physical training and badminton, while enjoying vocal music and choral singing.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Han Fei is an exceptional researcher. We collaborated on a complex hydrodynamics project, and his proficiency in Python and AI models significantly accelerated our progress. He is very concerned about the accuracy and real-world application of his robotic designs.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Working with Han Fei on the bionics simulation was a great experience. His multidisciplinary knowledge across computer science and mechanical engineering brought a fresh perspective to our team. Highly recommended for any advanced robotics team.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Beyond his technical skills, Han Fei's creative eye in photography and Photoshop helped us create stunning visual documentation for our research papers. His energy from physical training and badminton really shows in his relentless work ethic!
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    I had the pleasure of singing alongside Han Fei in the Xinyue Choir. He brings the same dedication to his vocal practices as he does to his scientific research. A truly well-rounded and inspiring individual.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Han Fei is an exceptional researcher. We collaborated on a complex hydrodynamics project, and his proficiency in Python and AI models significantly accelerated our progress. He is very concerned about the accuracy and real-world application of his robotic designs.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Collaborations & Affiliations</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="https://i4fsi.lab.westlake.edu.cn/" target="_blank">
-                <img src="./assets/images/logo-1-color.png" alt="Westlake University i4FSI Lab">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="https://sites.psu.edu/libr/team/" target="_blank">
-                <img src="./assets/images/logo-2-color.png" alt="Penn State LIBR Lab">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="Shenyang Institute of Automation">
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Westlake University</h4>
-
-              <span>Aug. 2023 — Present</span>
-
-              <p class="timeline-text">
-                Ph.D. Student in Computer Science and Technology. Research direction: Bionic robot motion planning.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">University of Chinese Academy of Sciences</h4>
-
-              <span>Sept. 2019 — Jun. 2022</span>
-
-              <p class="timeline-text">
-                Master of Engineering in Pattern recognition and intelligent system.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Zhengzhou University</h4>
-
-              <span>Sept. 2015 — Jul. 2019</span>
-
-              <p class="timeline-text">
-                Bachelor of Engineering in Measurement and control technology and instrument.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="briefcase-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Visiting Scholar - Penn State University</h4>
-
-              <span>Apr. 2026 — Present</span>
-
-              <p class="timeline-text">
-                Currently a 12-month program conducting advanced research in robotics and bionic mechanical engineering.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Research Assistant - Westlake University</h4>
-
-              <span>Jul. 2022 — Aug. 2023</span>
-
-              <p class="timeline-text">
-                Conducted data processing and paper writing for advanced robotic systems.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="document-text-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Selected Publications</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">IEEE ICRA 2025</h4>
-
-              <span>2025</span>
-
-              <p class="timeline-text">
-                <strong>F. Han</strong>, P. Guo, H. Chen, et al., "Learn to Swim: Data-Driven LSTM Hydrodynamic Model for Quadruped Robot Gait Optimization," 2025 IEEE International Conference on Robotics and Automation (ICRA), Atlanta, GA, USA.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Bioinspiration & Biomimetics</h4>
-
-              <span>2023</span>
-
-              <p class="timeline-text">
-                Xue J*, <strong>Han F* (Co-first author)</strong>, van Oorschot B K, et al. "Exploring storm petrel pattering and sea-anchoring using deep reinforcement learning."
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Physics of Fluids</h4>
-
-              <span>2023</span>
-
-              <p class="timeline-text">
-                Kang L, Gao A K, <strong>Han F</strong>, et al. "Propulsive performance and vortex dynamics of jellyfish-like propulsion with burst-and-coast strategy."
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Python & AI Models</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Robotics & Bionics</h5>
-                <data value="85">85%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Hydrodynamics Analysis</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Photoshop & Photography</h5>
-                <data value="75">75%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Robotics</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>AI & Python</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Photography</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Robotics</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>AI & Python</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Photography</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-            <li class="project-item active" data-filter-item data-category="robotics">
-              <a href="https://github.com/HanFei-hz/Dog_LSTM" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="Dog LSTM" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Learn to Swim: Dog LSTM</h3>
-
-                <p class="project-category">Robotics</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="ai & python">
-              <a href="https://github.com/HanFei-hz/Leg_offlineDRL" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="BPPO Offline RL" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">BPPO Offline RL</h3>
-
-                <p class="project-category">AI & Python</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="robotics">
-              <a href="https://github.com/HanFei-hz/WaterLily" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="WaterLily CFD" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">WaterLily CFD Simulation</h3>
-
-                <p class="project-category">Robotics</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="ai & python">
-              <a href="https://github.com/HanFei-hz/ClaudeTaskSystem" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="Task Manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Task Management Panel</h3>
-
-                <p class="project-category">AI & Python</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="robotics">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="Deep Sea Soft Gripper" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Deep Sea Soft Gripper</h3>
-
-                <p class="project-category">Robotics</p>
-
-              </a>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="ai & python">
-              <a href="./assets/files/rl_explorer.html" target="_blank">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="RL Explorer" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">RL Knowledge Graph</h3>
-
-                <p class="project-category">AI & Python</p>
-
-              </a>
-            </li>
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="https://github.com/HanFei-hz/WaterLily" target="_blank">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Bio-inspired Propulsion: A Review" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Robotics</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2026-02-23">Feb 23, 2026</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Bio-inspired Propulsion: A Review</h3>
-
-                  <p class="blog-text">
-                    Exploring how hydrodynamics shape the future of underwater bionic robots.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="https://github.com/HanFei-hz/Leg_offlineDRL" target="_blank">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Mastering AI Models with Python" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Coding</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2026-01-15">Jan 15, 2026</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Mastering AI Models with Python</h3>
-
-                  <p class="blog-text">
-                    Practical tips on integrating state-of-the-art AI into complex engineering workflows.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="My Year with the Xinyue Choir" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Life</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2025-12-18">Dec 18, 2025</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">My Year with the Xinyue Choir</h3>
-
-                  <p class="blog-text">
-                    Reflecting on the joy of singing and the harmony of vocal performances outside the lab.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="Photoshop Tips for Scientific Figures" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2025-11-05">Nov 05, 2025</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Photoshop Tips for Scientific Figures</h3>
-
-                  <p class="blog-text">
-                    How my photography hobby helps in crafting better visuals for research papers.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="Preparing for Penn State: Next Steps" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Life</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2026-03-01">Mar 01, 2026</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Preparing for Penn State: Next Steps</h3>
-
-                  <p class="blog-text">
-                    Getting ready for an exciting 12-month visiting scholar journey starting this April.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Why I Love Badminton and Fitness" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Sports</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2025-10-22">Oct 22, 2025</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Why I Love Badminton and Fitness</h3>
-
-                  <p class="blog-text">
-                    How physical training keeps my mind sharp for tackling complex computer science problems.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96576.43987158782!2d-77.93043232074352!3d40.79979391038481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89cea899c13b5627%3A0x6a2977726af6f6e5!2sState%20College%2C%20PA!5e0!3m2!1sen!2susa!4v1710242200000!5m2!1sen!2susa"
-              width="400" height="300" loading="lazy" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="https://formspree.io/f/your-form-id" class="form" data-form method="POST">
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
-
-      </article>
-
+      <div class="topbar-actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="ic ic-moon"><use href="#i-moon"/></svg>
+          <svg class="ic ic-sun"><use href="#i-sun"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+          <svg class="ic"><use href="#i-menu"/></svg>
+        </button>
+      </div>
     </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero wrap">
+      <div class="hero-text">
+        <p class="eyebrow">Ph.D. Student · Westlake University</p>
+        <h1>Fei Han <span class="cn">韩飞</span></h1>
+        <p class="lede">I build robots that <em>learn to swim with unsteady flow</em> rather than against it.</p>
+        <p>
+          I am a Ph.D. student in Computer Science and Technology at
+          <a href="https://i4fsi.lab.westlake.edu.cn/" target="_blank" rel="noopener">Westlake University (i4FSI Lab)</a>,
+          advised by Prof. Dixia Fan. My research sits where robotics, reinforcement learning and
+          experimental hydrodynamics meet: physical-learning platforms that collect real fluid–structure
+          interaction data at scale, data-driven load models, and safe learning and planning for
+          bio-inspired swimmers. From May to October 2026 I am a Visiting Scholar at
+          <a href="https://sites.psu.edu/libr/team/" target="_blank" rel="noopener">Penn State University</a>,
+          studying how centipedes swim across Reynolds numbers.
+        </p>
+
+        <ul class="links">
+          <li><a class="pill" href="mailto:hanfei@westlake.edu.cn"><svg class="ic"><use href="#i-mail"/></svg>Email</a></li>
+          <li><a class="pill" href="https://scholar.google.com/citations?user=3WVj0IoAAAAJ" target="_blank" rel="noopener"><svg class="ic"><use href="#i-scholar"/></svg>Google Scholar</a></li>
+          <li><a class="pill" href="https://github.com/HanFei-hz" target="_blank" rel="noopener"><svg class="ic"><use href="#i-github"/></svg>GitHub</a></li>
+          <li><a class="pill" href="https://www.researchgate.net/profile/Fei-Han-60" target="_blank" rel="noopener"><svg class="ic"><use href="#i-rg"/></svg>ResearchGate</a></li>
+          <li><a class="pill pill-solid" href="./assets/files/CV-Fei.pdf" target="_blank" rel="noopener"><svg class="ic"><use href="#i-cv"/></svg>CV</a></li>
+        </ul>
+
+        <ul class="tags">
+          <li>Bio-inspired robotics</li>
+          <li>Reinforcement learning</li>
+          <li>Physical learning in real fluids</li>
+          <li>Data-driven hydrodynamics</li>
+          <li>Legged swimming</li>
+        </ul>
+      </div>
+
+      <figure class="hero-photo">
+        <img src="./assets/img/portrait.jpg" alt="Portrait of Fei Han" width="560" height="558">
+      </figure>
+    </section>
+
+    <section class="stats wrap" aria-label="Publication summary">
+      <div><strong>2</strong><span>ICRA papers<br>2025 · 2026</span></div>
+      <div><strong>3</strong><span>submissions under review<br>ICRA 2027 ×2 · ICLR 2027</span></div>
+      <div><strong>1</strong><span>flagship preprint<br>REEF, arXiv 2026</span></div>
+      <div><strong>7</strong><span>peer-reviewed &amp; preprint<br>papers in total</span></div>
+    </section>
+
+    <!-- ============ NEWS ============ -->
+    <section class="section wrap" id="news">
+      <h2 class="section-title">News</h2>
+      <ol class="news">
+        <li><time>Sep 2026</time><p><strong>REEF</strong> is now public on <a href="https://arxiv.org/abs/2609.14254" target="_blank" rel="noopener">arXiv</a> — a high-throughput physical-learning platform that lets robots exploit unsteady vortices for propulsion.</p></li>
+        <li><time>Sep 2026</time><p>Submitted two papers to <strong>ICRA 2027</strong> and the <strong>HydroWrench</strong> dataset &amp; benchmark to <strong>ICLR 2027</strong>.</p></li>
+        <li><time>2026</time><p><strong>Swimming Under Constraints</strong> (safe RL for a quadrupedal swimmer) accepted to <strong>ICRA 2026</strong>, Vienna.</p></li>
+        <li><time>May 2026</time><p>Started a visiting-scholar stay at <strong>Penn State University</strong> (May–Oct 2026).</p></li>
+        <li><time>May 2025</time><p><strong>Learn to Swim</strong> presented at <strong>ICRA 2025</strong>, Atlanta.</p></li>
+        <li><time>Oct 2023</time><p>Storm-petrel DRL paper published in <em>Bioinspiration &amp; Biomimetics</em> (co-first author).</p></li>
+      </ol>
+    </section>
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="section wrap" id="research">
+      <h2 class="section-title">Research</h2>
+      <p class="section-intro">Animals do not suppress the vortices they shed — they ride them. Engineered swimmers usually treat the same flow as a disturbance. My work asks how a robot can <em>learn</em> to use it, when real-fluid data are scarce and simulation is either too slow or too wrong.</p>
+
+      <article class="theme">
+        <figure class="theme-media"><img src="./assets/img/shoal.jpg" alt="SHOAL eight-channel towing-tank array for high-throughput fluid–structure experiments" loading="lazy" width="1200" height="721"></figure>
+        <div class="theme-body">
+          <p class="theme-kicker">01 · Physical learning</p>
+          <h3>Learning directly from real fluid</h3>
+          <p>Instead of learning in a simulator and hoping it transfers, I learn in water. <strong>REEF</strong> couples <strong>SHOAL</strong>, an eight-channel high-throughput array for real fluid–structure interaction, with <strong>V-STAR</strong>, a staged imitation → offline → online learning algorithm. Across lift-, drag- and jet-based propulsors it more than doubles the attainable force envelope of parameterized search, and PIV shows the gains come from coordinated vortex formation. The same data infrastructure underlies <strong>HydroWrench</strong>, a 116k-trajectory benchmark for dynamic load reconstruction.</p>
+          <p class="theme-refs">REEF (arXiv 2026) · HydroWrench (ICLR 2027, under review)</p>
+        </div>
+      </article>
+
+      <article class="theme theme-flip">
+        <figure class="theme-media"><img src="./assets/img/lts_outdoor.jpg" alt="Quadrupedal webbed-foot swimming robot in an outdoor pond" loading="lazy" width="1400" height="800"></figure>
+        <div class="theme-body">
+          <p class="theme-kicker">02 · Legged swimming</p>
+          <h3>A quadruped that learns to swim — from model to route</h3>
+          <p>One webbed-foot quadruped platform, three layers of autonomy. <strong>Learn to Swim</strong> replaces empirical drag formulas with an LSTM hydrodynamic model trained on tank experiments, cutting straight-line deviation and turning time by ~47%. <strong>Swimming Under Constraints</strong> learns gaits on hardware with a PID-regulated Lagrangian safe-RL method that maximizes thrust while bounding destabilizing lift. <strong>From Gaits to Routes</strong> composes those gaits into execution-aware route following (82.5% vs 10.5% strict success over direct PPO).</p>
+          <p class="theme-refs">ICRA 2025 · ICRA 2026 · ICRA 2027 (under review)</p>
+        </div>
+      </article>
+
+      <article class="theme">
+        <figure class="theme-media"><img class="fit" src="./assets/img/petrel_model.jpg" alt="Storm petrel morphology and joint model used for deep reinforcement learning" loading="lazy" width="1200" height="663"></figure>
+        <div class="theme-body">
+          <p class="theme-kicker">03 · Locomotion across interfaces and scales</p>
+          <h3>What animals can teach a controller</h3>
+          <p>Storm petrels "walk" on the sea surface and use their feet as anchors in the wind. With a 9-DoF morphological model and a hybrid aero–hydrodynamic force model, we used deep reinforcement learning to reproduce both <em>pattering</em> and <em>sea-anchoring</em> and to explain the gaits the birds choose. At Penn State I am now studying the stone centipede, which swims head-first on a tail-to-head body wave — a reduced-order model reproduces its speed and pins the thrust on its legs.</p>
+          <p class="theme-refs">Bioinspiration &amp; Biomimetics 2023 · centipede swimming (ongoing)</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ PUBLICATIONS ============ -->
+    <section class="section wrap" id="publications">
+      <div class="section-head">
+        <h2 class="section-title">Publications</h2>
+        <div class="filters" role="group" aria-label="Filter publications">
+          <button class="chip is-active" data-filter="all">All</button>
+          <button class="chip" data-filter="published">Published</button>
+          <button class="chip" data-filter="preprint">Preprint</button>
+          <button class="chip" data-filter="review">Under review</button>
+        </div>
+      </div>
+      <p class="legend">* equal contribution &nbsp;·&nbsp; ✉ corresponding author</p>
+
+      <h3 class="pub-group" data-group="main">Research papers</h3>
+      <ol class="pubs">
+
+        <li class="pub" data-status="preprint">
+          <figure class="pub-thumb"><img src="./assets/img/reef_overview.jpg" alt="REEF overview figure" loading="lazy"></figure>
+          <div class="pub-body">
+            <p class="venue"><span class="badge badge-preprint">Preprint</span> arXiv 2026</p>
+            <h4>Embracing Flow Unsteadiness: A High-Throughput Learning Platform Enables Vortex-Exploiting Bioinspired Propulsion</h4>
+            <p class="authors"><b>Fei Han</b>*, Xinyu Cui*, Zhipeng Wang*, Ning Yang, Hang Xu, Haifeng Zhang, Zhongming Hu, Jun Wang, Junfeng Du, Dixia Fan✉</p>
+            <p class="tldr">REEF = SHOAL (8-channel real-fluid array) + V-STAR (staged learning). More than 2× the force envelope of parameterized search; force-trained policies transfer zero-shot to free-swimming robots.</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2609.14254" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>arXiv</a>
+              <a href="https://arxiv.org/pdf/2609.14254v1" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pdf"/></svg>PDF</a>
+              <button data-bib="bib-reef"><svg class="ic"><use href="#i-quote"/></svg>BibTeX</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="pub" data-status="published">
+          <figure class="pub-thumb"><img src="./assets/img/saferl_framework.jpg" alt="ACPPO-PID safe RL framework" loading="lazy"></figure>
+          <div class="pub-body">
+            <p class="venue"><span class="badge badge-pub">ICRA 2026</span> IEEE Int. Conf. on Robotics and Automation, Vienna</p>
+            <h4>Swimming Under Constraints: A Safe Reinforcement Learning Framework for Quadrupedal Bio-Inspired Propulsion</h4>
+            <p class="authors">Xinyu Cui*, <b>Fei Han</b>*✉, Hang Xu, Yongcheng Zeng, Luoyang Sun, Ruizhi Zhang, Jian Zhao, Haifeng Zhang, Weikun Li, Hao Chen, Jun Wang, Dixia Fan✉</p>
+            <p class="tldr">ACPPO-PID: constrained PPO with a PID-regulated Lagrange multiplier, trained on hardware in a towing tank; higher thrust efficiency with suppressed lift oscillation, transferred to free swimming.</p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2603.04073" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>arXiv</a>
+              <a href="https://arxiv.org/pdf/2603.04073v1" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pdf"/></svg>PDF</a>
+              <a href="#video-icra2026"><svg class="ic"><use href="#i-play"/></svg>Video</a>
+              <button data-bib="bib-saferl"><svg class="ic"><use href="#i-quote"/></svg>BibTeX</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="pub" data-status="published">
+          <figure class="pub-thumb"><img src="./assets/img/lts_experiment.jpg" alt="Learn to Swim hardware experiment" loading="lazy"></figure>
+          <div class="pub-body">
+            <p class="venue"><span class="badge badge-pub">ICRA 2025</span> IEEE Int. Conf. on Robotics and Automation, Atlanta</p>
+            <h4>Learn to Swim: Data-Driven LSTM Hydrodynamic Model for Quadruped Robot Gait Optimization</h4>
+            <p class="authors"><b>Fei Han</b>, Pengming Guo, Hao Chen, Weikun Li, Jingbo Ren, Naijun Liu, Ning Yang, Dixia Fan✉</p>
+            <p class="tldr">FED-LSTM, trained on leg-force and body-drag tank data, replaces empirical formulas for NSGA-II gait optimization: +47.1% straight-line accuracy and 47.6% faster turns on hardware.</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1109/ICRA55743.2025.11128080" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>IEEE</a>
+              <a href="https://arxiv.org/abs/2505.03146" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pdf"/></svg>arXiv</a>
+              <a href="https://github.com/HanFei-hz/Dog_LSTM" target="_blank" rel="noopener"><svg class="ic"><use href="#i-code"/></svg>Code</a>
+              <a href="#video-icra2025"><svg class="ic"><use href="#i-play"/></svg>Video</a>
+              <button data-bib="bib-lts"><svg class="ic"><use href="#i-quote"/></svg>BibTeX</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="pub" data-status="published">
+          <figure class="pub-thumb"><img src="./assets/img/petrel_drl.jpg" alt="Storm petrel DRL framework" loading="lazy"></figure>
+          <div class="pub-body">
+            <p class="venue"><span class="badge badge-pub">B&amp;B 2023</span> Bioinspiration &amp; Biomimetics 18(6), 066016</p>
+            <h4>Exploring Storm Petrel Pattering and Sea-Anchoring Using Deep Reinforcement Learning</h4>
+            <p class="authors">Jiaqi Xue*, <b>Fei Han</b>*, Brett Klaassen van Oorschot, Glenna Clifton, Dixia Fan✉</p>
+            <p class="tldr">A 9-DoF petrel model with hybrid aero-/hydrodynamic forces, trained with DDPG, reproduces surface pattering and sea-anchoring gaits.</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1088/1748-3190/ad00a2" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>DOI</a>
+              <button data-bib="bib-petrel"><svg class="ic"><use href="#i-quote"/></svg>BibTeX</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="pub pub-compact" data-status="review">
+          <div class="pub-body">
+            <p class="venue"><span class="badge badge-review">Under review</span> ICRA 2027</p>
+            <h4>From Gaits to Routes: Execution-Aware Hybrid Behavior Planning for Quadrupedal Swimming with Experiment-Calibrated Hydrodynamics</h4>
+            <p class="tldr">Hybrid behavior commands + predictive skill distillation into a 50 Hz policy; 82.5% strict route-following success vs 10.5% for direct PPO in 720 matched episodes.</p>
+          </div>
+        </li>
+
+        <!-- TODO: second ICRA 2027 submission — fill in title / one-line summary, then remove `hidden`.
+        <li class="pub pub-compact" data-status="review">
+          <div class="pub-body">
+            <p class="venue"><span class="badge badge-review">Under review</span> ICRA 2027</p>
+            <h4>TITLE</h4>
+            <p class="tldr">ONE-LINE SUMMARY</p>
+          </div>
+        </li>
+        -->
+
+        <li class="pub pub-compact" data-status="review">
+          <div class="pub-body">
+            <p class="venue"><span class="badge badge-review">Under review</span> ICLR 2027</p>
+            <h4>HydroWrench: A Dataset and Benchmark for Dynamic Load Reconstruction in Bioinspired Aquatic Mechanisms</h4>
+            <p class="tldr">116,756 command–load trajectories from caudal-fin, webbed-foot and flipper mechanisms with measured six-axis loads, plus a shared benchmark protocol.</p>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="pub-group" data-group="collab">Collaborations</h3>
+      <ol class="pubs pubs-plain">
+        <li class="pub" data-status="published">
+          <p class="venue"><span class="badge badge-pub">PoF 2023</span> Physics of Fluids 35(10), 101914</p>
+          <h4>Force Decomposition on Flapping Flexible Plate via Impulse Theory and Dynamic Mode Decomposition</h4>
+          <p class="authors">Linlin Kang, Shiying Xiong, Buchen Wu, Chao Li, Mingming Ge, Dehan Yuan, <b>Fei Han</b>, Weicheng Cui</p>
+          <div class="pub-links"><a href="https://doi.org/10.1063/5.0169989" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>DOI</a></div>
+        </li>
+        <li class="pub" data-status="published">
+          <p class="venue"><span class="badge badge-pub">PoF 2023</span> Physics of Fluids 35(9), 091904</p>
+          <h4>Propulsive Performance and Vortex Dynamics of Jellyfish-like Propulsion with Burst-and-Coast Strategy</h4>
+          <p class="authors">Linlin Kang, An-Kang Gao, <b>Fei Han</b>, Weicheng Cui, Xi-Yun Lu</p>
+          <div class="pub-links"><a href="https://doi.org/10.1063/5.0160878" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>DOI</a></div>
+        </li>
+        <li class="pub" data-status="published">
+          <p class="venue"><span class="badge badge-pub">ROBIO 2021</span> IEEE Int. Conf. on Robotics and Biomimetics, Sanya</p>
+          <h4>An Underwater Soft Claw Based on Bionic Principle</h4>
+          <p class="authors">Yanxu Sun, <b>Fei Han</b>, Daohui Zhang, et al.</p>
+        </li>
+      </ol>
+      <p class="more">Full list on <a href="https://scholar.google.com/citations?user=3WVj0IoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
+    </section>
+
+    <!-- ============ VIDEOS ============ -->
+    <section class="section wrap" id="videos">
+      <h2 class="section-title">ICRA Videos</h2>
+      <p class="section-intro">Three years of the same swimming quadruped, from a learned force model to safe on-hardware learning to route-level planning.</p>
+      <div class="videos">
+        <figure class="video-card" id="video-icra2025">
+          <div class="video-frame">
+            <video controls preload="metadata" playsinline poster="./assets/img/lts_outdoor.jpg">
+              <source src="./assets/videos/icra2025.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="badge badge-pub">ICRA 2025</span> Learn to Swim</figcaption>
+        </figure>
+        <figure class="video-card" id="video-icra2026">
+          <div class="video-frame">
+            <video controls preload="metadata" playsinline poster="./assets/img/swimdog.jpg">
+              <source src="./assets/videos/icra2026.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="badge badge-pub">ICRA 2026</span> Swimming Under Constraints</figcaption>
+        </figure>
+        <figure class="video-card" id="video-icra2027">
+          <div class="video-frame">
+            <video controls preload="metadata" playsinline>
+              <source src="./assets/videos/icra2027.mp4" type="video/mp4">
+            </video>
+          </div>
+          <figcaption><span class="badge badge-review">ICRA 2027</span> From Gaits to Routes</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section wrap" id="experience">
+      <h2 class="section-title">Experience &amp; Education</h2>
+      <div class="cols">
+        <ol class="timeline">
+          <li><time>May 2026 – Oct 2026</time><h4>Visiting Scholar · Penn State University</h4><p>Centipede swimming across Reynolds numbers; reduced-order hydrodynamic modeling.</p></li>
+          <li><time>Aug 2023 – present</time><h4>Ph.D. Student · Westlake University</h4><p>Computer Science and Technology, i4FSI Lab (advisor: Prof. Dixia Fan). Learning and control for bio-inspired swimming robots.</p></li>
+          <li><time>Jul 2022 – Aug 2023</time><h4>Research Assistant · Westlake University</h4><p>Experimental data processing and paper writing for bio-inspired robotic systems.</p></li>
+        </ol>
+        <ol class="timeline">
+          <li><time>Sep 2019 – Jun 2022</time><h4>M.Eng. · University of Chinese Academy of Sciences</h4><p>Pattern Recognition and Intelligent Systems. Deep-sea soft gripper for non-destructive grasping.</p></li>
+          <li><time>Sep 2015 – Jul 2019</time><h4>B.Eng. · Zhengzhou University</h4><p>Measurement and Control Technology and Instruments. RoboMaster robotics competition.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ LIFE / PROJECTS ============ -->
+    <section class="section wrap" id="life">
+      <h2 class="section-title">Beyond the Lab</h2>
+      <div class="life">
+        <figure class="life-photo"><img src="./assets/img/life.jpg" alt="Fei Han" loading="lazy" width="700" height="1040"></figure>
+        <div>
+          <p>Outside research I train, play badminton and sing — I spent a year with the Xinyue Choir — and I take a camera almost everywhere. Photography has quietly shaped how I make figures for papers.</p>
+          <h3 class="sub">Code &amp; tools</h3>
+          <ul class="repos">
+            <li><a href="https://github.com/HanFei-hz/Dog_LSTM" target="_blank" rel="noopener"><b>Dog_LSTM</b><span>LSTM hydrodynamic model and gait optimization (ICRA 2025)</span></a></li>
+            <li><a href="https://github.com/HanFei-hz/Leg_offlineDRL" target="_blank" rel="noopener"><b>Leg_offlineDRL</b><span>Offline RL (BPPO) for a single swimming leg</span></a></li>
+            <li><a href="https://github.com/HanFei-hz/WaterLily" target="_blank" rel="noopener"><b>WaterLily</b><span>CFD experiments for flapping and undulating bodies</span></a></li>
+            <li><a href="./assets/files/rl_explorer.html" target="_blank" rel="noopener"><b>RL Explorer</b><span>Interactive knowledge graph of reinforcement learning</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
   </main>
 
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Fei Han · <a href="mailto:hanfei@westlake.edu.cn">hanfei@westlake.edu.cn</a></p>
+      <p class="muted">Last updated September 2026</p>
+    </div>
+  </footer>
 
+  <dialog class="bib-dialog" id="bib-dialog">
+    <form method="dialog">
+      <div class="bib-head"><strong>BibTeX</strong><div><button type="button" class="chip" id="bib-copy">Copy</button><button class="chip">Close</button></div></div>
+      <pre id="bib-text"></pre>
+    </form>
+  </dialog>
 
+  <template id="bib-reef">@article{han2026reef,
+  title   = {Embracing Flow Unsteadiness: A High-Throughput Learning Platform Enables Vortex-Exploiting Bioinspired Propulsion},
+  author  = {Han, Fei and Cui, Xinyu and Wang, Zhipeng and Yang, Ning and Xu, Hang and Zhang, Haifeng and Hu, Zhongming and Wang, Jun and Du, Junfeng and Fan, Dixia},
+  journal = {arXiv preprint arXiv:2609.14254},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2609.14254}
+}</template>
+  <template id="bib-saferl">@inproceedings{cui2026swimming,
+  title     = {Swimming Under Constraints: A Safe Reinforcement Learning Framework for Quadrupedal Bio-Inspired Propulsion},
+  author    = {Cui, Xinyu and Han, Fei and Xu, Hang and Zeng, Yongcheng and Sun, Luoyang and Zhang, Ruizhi and Zhao, Jian and Zhang, Haifeng and Li, Weikun and Chen, Hao and Wang, Jun and Fan, Dixia},
+  booktitle = {2026 IEEE International Conference on Robotics and Automation (ICRA)},
+  year      = {2026},
+  note      = {arXiv:2603.04073}
+}</template>
+  <template id="bib-lts">@inproceedings{han2025learn,
+  title     = {Learn to Swim: Data-Driven LSTM Hydrodynamic Model for Quadruped Robot Gait Optimization},
+  author    = {Han, Fei and Guo, Pengming and Chen, Hao and Li, Weikun and Ren, Jingbo and Liu, Naijun and Yang, Ning and Fan, Dixia},
+  booktitle = {2025 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages     = {10261--10267},
+  year      = {2025},
+  doi       = {10.1109/ICRA55743.2025.11128080}
+}</template>
+  <template id="bib-petrel">@article{xue2023exploring,
+  title   = {Exploring storm petrel pattering and sea-anchoring using deep reinforcement learning},
+  author  = {Xue, Jiaqi and Han, Fei and Klaassen van Oorschot, Brett and Clifton, Glenna and Fan, Dixia},
+  journal = {Bioinspiration \& Biomimetics},
+  volume  = {18},
+  number  = {6},
+  pages   = {066016},
+  year    = {2023},
+  doi     = {10.1088/1748-3190/ad00a2}
+}</template>
 
-
-
-  <script src="./assets/js/script.js"></script>
-
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <script src="./assets/js/main.js"></script>
 </body>
-
 </html>

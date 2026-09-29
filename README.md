@@ -1,22 +1,29 @@
-# Han Fei - Personal Portfolio
+# Fei Han — academic homepage
 
-![GitHub repo size](https://img.shields.io/github/repo-size/HanFei-hz/HanFei-hz.github.io)
+Source for [hanfei-hz.github.io](https://hanfei-hz.github.io). Plain HTML/CSS/JS, no build step; follows the system light/dark theme with a manual toggle.
 
-Personal portfolio website for Han Fei — Ph.D. student in Computer Science and Technology at Westlake University, currently Visiting Scholar at Penn State University.
+## Layout
 
-Built with HTML, CSS, and JavaScript. Fully responsive, dark theme.
+```
+index.html              all content (news, research, publications, videos, experience)
+assets/css/main.css     styles and color tokens (light + dark)
+assets/js/main.js       theme toggle, mobile menu, publication filter, BibTeX dialog, video fallback
+assets/img/             compressed figures and photos
+assets/videos/          ICRA videos (see README inside)
+assets/files/           CV and the RL Explorer page
+```
 
-## Sections
+## Common edits
 
-- **About** — Research interests, personal background, and services
-- **Resume** — Education, experience, publications, and skills
-- **Portfolio** — Project showcase
-- **Blog** — Research notes and personal articles
-- **Contact** — Get in touch
+- **News:** add an `<li>` at the top of `<ol class="news">`.
+- **Publication:** copy an `<li class="pub">` block. `data-status` is `published`, `preprint` or `review` (drives the filter). Mark yourself with `<b>Fei Han</b>`.
+- **Paper accepted:** change `data-status="review"` to `published` and the badge class `badge-review` to `badge-pub`.
+- **BibTeX:** add a `<template id="bib-xxx">` at the bottom of `index.html` and a `<button data-bib="bib-xxx">` in the paper's links.
+- **Video:** put the MP4 in `assets/videos/` with the name listed there.
 
-## Visit
+## Preview locally
 
-[https://hz.github.io](https://hz.github.io)
+Open `index.html` in a browser, or run `python -m http.server` in this folder and visit http://localhost:8000.
 
 ## License
 
