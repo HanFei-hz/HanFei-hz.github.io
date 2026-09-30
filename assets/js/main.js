@@ -1,46 +1,107 @@
 'use strict';
 
-// ---------- theme toggle ----------
-(function () {
-  const root = document.documentElement;
-  const btn = document.getElementById('theme-toggle');
-  const systemDark = () => window.matchMedia('(prefers-color-scheme: dark)').matches;
-  btn.addEventListener('click', () => {
-    const current = root.dataset.theme || (systemDark() ? 'dark' : 'light');
-    const next = current === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = next;
-    try { localStorage.setItem('theme', next); } catch (e) {}
+// Theme preference is applied in the document head before first paint.
+(() => {
+  const button = document.getElementById('theme-toggle');
+  const sync = () => {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    button.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  };
+  button.addEventListener('click', () => {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = theme;
+    try { localStorage.setItem('theme', theme); } catch (_) {}
+    sync();
   });
+  sync();
 })();
 
-// ---------- mobile menu ----------
-(function () {
-  const nav = document.getElementById('nav');
-  const btn = document.getElementById('menu-toggle');
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-  nav.addEventListener('click', (e) => {
-    if (e.target.closest('a')) {
-      nav.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
-})();
+// Progressive enhancement: without JS all sections remain readable.
+(() => {
+  const panels = [...document.querySelectorAll('.panel')];
+  const nav = document.querySelector('.tab-nav');
+  const tabs = [...nav.querySelectorAll('.tab-link')];
+  const main = document.getElementById('main-content');
+  const titles = new Map(tabs.map(tab => [tab.getAttribute('aria-controls'), tab.textContent]));
+  nav.setAttribute('role', 'tablist');
+  tabs.forEach(tab => tab.setAttribute('role', 'tab'));
+  panels.forEach(panel => panel.setAttribute('role', 'tabpanel'));
 
-// ---------- highlight current section in nav ----------
-(function () {
-  const links = [...document.querySelectorAll('.nav a')];
-  const sections = links.map((a) => document.querySelector(a.getAttribute('href'))).filter(Boolean);
-  if (!('IntersectionObserver' in window)) return;
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      links.forEach((a) => a.classList.toggle('is-current', a.getAttribute('href') === '#' + entry.target.id));
+  function resolve(hash) {
+    let id;
+    try { id = decodeURIComponent(hash.slice(1)); } catch (_) { id = ''; }
+    const target = document.getElementById(id);
+    const panel = target?.closest('.panel') || panels[0];
+    return { panel, target: target?.closest('.panel') ? target : panel };
+  }
+
+  function activate(hash, { scroll = false, focus = false } = {}) {
+    const { panel, target } = resolve(hash);
+    panels.forEach(item => {
+      item.hidden = item !== panel;
+      if (item.hidden) item.querySelectorAll('video').forEach(video => video.pause());
     });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-  sections.forEach((s) => io.observe(s));
+    tabs.forEach(tab => {
+      const selected = tab.getAttribute('aria-controls') === panel.id;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      if (selected) {
+        const left = tab.offsetLeft - nav.offsetLeft;
+        if (left < nav.scrollLeft || left + tab.offsetWidth > nav.scrollLeft + nav.clientWidth) {
+          nav.scrollTo({ left: left - 12, behavior: 'instant' });
+        }
+      }
+    });
+    document.title = `${titles.get(panel.id)} · Fei Han`;
+    if (focus) panel.focus({ preventScroll: true });
+    if (scroll) requestAnimationFrame(() => {
+      if (target !== panel) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+      else window.scrollTo({ top: Math.max(0, main.getBoundingClientRect().top + window.scrollY - 20), behavior: 'instant' });
+    });
+  }
+
+  function navigate(hash, options) {
+    if (location.hash !== hash) history.pushState(null, '', hash);
+    activate(hash, options);
+  }
+
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const hash = link.getAttribute('href');
+    const { target } = resolve(hash);
+    if (!target) return;
+    event.preventDefault();
+    navigate(hash, { scroll: true, focus: !link.matches('.tab-link') });
+  });
+
+  nav.addEventListener('keydown', event => {
+    const current = tabs.indexOf(document.activeElement);
+    if (current < 0) return;
+    let next;
+    if (event.key === 'ArrowRight') next = (current + 1) % tabs.length;
+    else if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = tabs.length - 1;
+    else if (event.key === ' ') { event.preventDefault(); tabs[current].click(); return; }
+    else return;
+    event.preventDefault();
+    tabs[next].focus({ preventScroll: true });
+    navigate(tabs[next].getAttribute('href'), { scroll: false });
+  });
+  window.addEventListener('popstate', () => activate(location.hash, { scroll: true }));
+  window.addEventListener('hashchange', () => activate(location.hash, { scroll: true }));
+  activate(location.hash, { scroll: !!location.hash });
+  document.documentElement.classList.add('tabs-ready');
+})();
+
+(() => {
+  const button = document.getElementById('contact-toggle');
+  const details = document.getElementById('profile-details');
+  button.addEventListener('click', () => {
+    const open = details.classList.toggle('is-open');
+    button.setAttribute('aria-expanded', String(open));
+  });
 })();
 
 // ---------- publication filter ----------
@@ -48,9 +109,10 @@
   const chips = document.querySelectorAll('.filters .chip');
   const pubs = document.querySelectorAll('#publications .pub');
   const groups = document.querySelectorAll('#publications .pub-group');
+  chips.forEach(chip => chip.setAttribute('aria-pressed', String(chip.classList.contains('is-active'))));
   chips.forEach((chip) => chip.addEventListener('click', () => {
     const f = chip.dataset.filter;
-    chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+    chips.forEach((c) => { c.classList.toggle('is-active', c === chip); c.setAttribute('aria-pressed', String(c === chip)); });
     pubs.forEach((p) => { p.hidden = f !== 'all' && p.dataset.status !== f; });
     // Hide a group heading when every paper under it is filtered out.
     groups.forEach((g) => {

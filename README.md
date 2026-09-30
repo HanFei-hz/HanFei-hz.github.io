@@ -1,13 +1,13 @@
 # Fei Han — academic homepage
 
-Source for [hanfei-hz.github.io](https://hanfei-hz.github.io). Plain HTML/CSS/JS, no build step; follows the system light/dark theme with a manual toggle.
+Source for [hanfei-hz.github.io](https://hanfei-hz.github.io). Plain HTML/CSS/JS, no build step. A persistent profile card and six tabbed panels, with dark/light themes and a saved theme preference. First-time visitors see the dark theme.
 
 ## Layout
 
 ```
 index.html              all content (news, research, publications, videos, experience)
 assets/css/main.css     styles and color tokens (light + dark)
-assets/js/main.js       theme toggle, mobile menu, publication filter, BibTeX dialog, video fallback
+assets/js/main.js       accessible tabs, hash navigation, theme toggle, mobile contacts, publication filter, BibTeX dialog, video fallback
 assets/img/             compressed figures and photos
 assets/videos/          ICRA videos (see README inside)
 assets/files/           CV and the RL Explorer page
@@ -28,3 +28,9 @@ Open `index.html` in a browser, or run `python -m http.server` in this folder an
 ## License
 
 MIT
+
+## Navigation and design
+
+The six panels are About, Research, Publications, Videos, Resume, and Beyond the Lab. Only the active panel is shown when JavaScript is available. Direct hashes (including #video-icra2025, #video-icra2026, and #news), browser back/forward, and keyboard Arrow/Home/End navigation are supported. Videos pause when their panel is left. Without JavaScript, all content remains readable; printing also includes all panels.
+
+The layout is inspired by [codewithsadee/vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio), adapted for academic work with original site content and teal accents. The existing MIT license is retained.

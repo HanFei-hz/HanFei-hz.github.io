@@ -12,19 +12,19 @@
 
   <script>
     // Apply the saved theme before first paint to avoid a flash.
-    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+    document.documentElement.dataset.theme = 'dark';
+    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="stylesheet" href="./assets/css/main.css?v=tabs-1">
 </head>
 
 <body>
-
-  <!-- SVG icon sprite -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<a class="skip-link" href="#about">Skip to content</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v12H4z M4 7l8 6 8-6"/></symbol>
     <symbol id="i-scholar" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.2V16c0 1.7 2.7 3.5 6 3.5s6-1.8 6-3.5v-3.8l-6 3.3-6-3.3z"/></symbol>
     <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></symbol>
@@ -39,93 +39,38 @@
     <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
   </svg>
-
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#top">Fei Han</a>
-      <nav class="nav" id="nav">
-        <a href="#news">News</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#videos">Videos</a>
-        <a href="#experience">Experience</a>
-        <a href="#life">Beyond the Lab</a>
-      </nav>
-      <div class="topbar-actions">
-        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
-          <svg class="ic ic-moon"><use href="#i-moon"/></svg>
-          <svg class="ic ic-sun"><use href="#i-sun"/></svg>
-        </button>
-        <button class="icon-btn menu-btn" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
-          <svg class="ic"><use href="#i-menu"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
-
-    <!-- ============ HERO ============ -->
-    <section class="hero wrap">
-      <div class="hero-text">
-        <p class="eyebrow">Ph.D. Student · Westlake University</p>
-        <h1>Fei Han <span class="cn">韩非</span></h1>
-        <p class="lede">I build robots that <em>learn to swim with unsteady flow</em> rather than against it.</p>
-        <p>
-          I am a Ph.D. student in Computer Science and Technology at
-          <a href="https://i4fsi.lab.westlake.edu.cn/" target="_blank" rel="noopener">Westlake University (i4FSI Lab)</a>,
-          advised by Prof. Dixia Fan. My research sits where robotics, reinforcement learning and
-          experimental hydrodynamics meet: physical-learning platforms that collect real fluid–structure
-          interaction data at scale, data-driven load models, and safe learning and planning for
-          bio-inspired swimmers. From May to October 2026 I am a Visiting Scholar at
-          <a href="https://sites.psu.edu/libr/team/" target="_blank" rel="noopener">Penn State University</a>,
-          studying how centipedes swim across Reynolds numbers.
-        </p>
-
-        <ul class="links">
+<div class="site-shell" id="top"><aside class="profile-card" aria-label="Profile">
+ <div class="profile-top"><img class="portrait" src="./assets/img/portrait-neutral.jpg" alt="Portrait of Fei Han" width="560" height="558"><div class="profile-identity"><h1>Fei Han <span lang="zh">韩非</span></h1><p class="role-label">Ph.D. Student</p><p class="profile-affiliation">Westlake University</p></div></div>
+ <button class="contact-toggle" id="contact-toggle" aria-expanded="false" aria-controls="profile-details">Contact &amp; links <span aria-hidden="true">⌄</span></button>
+ <div class="profile-details" id="profile-details"><div class="profile-divider"></div><dl class="profile-facts"><div><dt><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Email</dt><dd><a href="mailto:hanfei@westlake.edu.cn">hanfei@westlake.edu.cn</a></dd></div><div><dt><svg class="ic" aria-hidden="true"><use href="#i-scholar"/></svg> Research</dt><dd>Bio-inspired swimming robots</dd></div><div><dt><svg class="ic" aria-hidden="true"><use href="#i-link"/></svg> Visiting scholar</dt><dd>Penn State University<span>May – October 2026</span></dd></div></dl><ul class="links">
           <li><a class="pill" href="mailto:hanfei@westlake.edu.cn"><svg class="ic"><use href="#i-mail"/></svg>Email</a></li>
           <li><a class="pill" href="https://scholar.google.com/citations?user=3WVj0IoAAAAJ" target="_blank" rel="noopener"><svg class="ic"><use href="#i-scholar"/></svg>Google Scholar</a></li>
           <li><a class="pill" href="https://github.com/HanFei-hz" target="_blank" rel="noopener"><svg class="ic"><use href="#i-github"/></svg>GitHub</a></li>
           <li><a class="pill" href="https://www.researchgate.net/profile/Fei-Han-60" target="_blank" rel="noopener"><svg class="ic"><use href="#i-rg"/></svg>ResearchGate</a></li>
           <li><a class="pill pill-solid" href="./assets/files/CV-Fei.pdf" target="_blank" rel="noopener"><svg class="ic"><use href="#i-cv"/></svg>CV</a></li>
-        </ul>
-
-        <ul class="tags">
+        </ul><p class="profile-note">Learning, modeling &amp; control<br>in real fluids.</p></div>
+</aside><main class="content-card" id="main-content">
+<header class="panel-toolbar"><nav class="tab-nav" aria-label="Main sections"><a class="tab-link" id="tab-about" href="#about" aria-controls="about">About</a><a class="tab-link" id="tab-research" href="#research" aria-controls="research">Research</a><a class="tab-link" id="tab-publications" href="#publications" aria-controls="publications">Publications</a><a class="tab-link" id="tab-videos" href="#videos" aria-controls="videos">Videos</a><a class="tab-link" id="tab-experience" href="#experience" aria-controls="experience">Resume</a><a class="tab-link" id="tab-life" href="#life" aria-controls="life">Beyond the Lab</a></nav><button class="icon-btn" id="theme-toggle" aria-label="Switch color theme"><svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg></button></header>
+<section class="panel" id="about" aria-labelledby="tab-about" tabindex="0">
+  <p class="eyebrow">Robotics · Learning · Fluid dynamics</p>
+  <h2 class="section-title">About me</h2>
+  <div class="intro-banner"><p class="intro-label">Learning in the real world</p><h3>Robots that learn to swim<br><em>with unsteady flow.</em></h3><p>From physical experiments to intelligent aquatic motion.</p><a class="pill pill-solid" href="#research">Explore my research <span aria-hidden="true">↗</span></a><div class="flow-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+  <div class="bio"><p>I study how robots learn to move in real fluids. At <a href="https://i4fsi.lab.westlake.edu.cn/" target="_blank" rel="noopener">Westlake University’s i4FSI Lab</a>, advised by Prof. Dixia Fan, I develop experimental learning platforms, hydrodynamic models, and safe control for bio-inspired swimmers.</p><p>I am also a visiting scholar at <a href="https://sites.psu.edu/libr/team/" target="_blank" rel="noopener">Penn State University</a> (May–October 2026), studying how centipedes swim across Reynolds numbers.</p></div><ul class="tags">
           <li>Bio-inspired robotics</li>
           <li>Reinforcement learning</li>
           <li>Physical learning in real fluids</li>
           <li>Data-driven hydrodynamics</li>
           <li>Legged swimming</li>
-        </ul>
-      </div>
-
-      <figure class="hero-photo">
-        <img src="./assets/img/portrait-neutral.jpg" alt="Portrait of Fei Han" width="560" height="558">
-      </figure>
-    </section>
-
-    <section class="stats wrap" aria-label="Publication summary">
+        </ul><section class="stats" aria-label="Publication summary">
       <div><strong>2</strong><span>ICRA papers<br>2025 · 2026</span></div>
       <div><strong>3</strong><span>submissions under review<br>ICRA 2027 ×2 · ICLR 2027</span></div>
       <div><strong>1</strong><span>flagship preprint<br>REEF, arXiv 2026</span></div>
       <div><strong>7</strong><span>peer-reviewed &amp; preprint<br>papers in total</span></div>
     </section>
-
-    <!-- ============ NEWS ============ -->
-    <section class="section wrap" id="news">
-      <h2 class="section-title">News</h2>
-      <ol class="news">
-        <li><time>Sep 2026</time><p><strong>REEF</strong> is now public on <a href="https://arxiv.org/abs/2609.14254" target="_blank" rel="noopener">arXiv</a> — a high-throughput physical-learning platform that lets robots exploit unsteady vortices for propulsion.</p></li>
-        <li><time>Sep 2026</time><p>Submitted two papers to <strong>ICRA 2027</strong> and the <strong>HydroWrench</strong> dataset &amp; benchmark to <strong>ICLR 2027</strong>.</p></li>
-        <li><time>2026</time><p><strong>Swimming Under Constraints</strong> (safe RL for a quadrupedal swimmer) accepted to <strong>ICRA 2026</strong>, Vienna.</p></li>
-        <li><time>May 2026</time><p>Started a visiting-scholar stay at <strong>Penn State University</strong> (May–Oct 2026).</p></li>
-        <li><time>May 2025</time><p><strong>Learn to Swim</strong> presented at <strong>ICRA 2025</strong>, Atlanta.</p></li>
-        <li><time>Oct 2023</time><p>Storm-petrel DRL paper published in <em>Bioinspiration &amp; Biomimetics</em> (co-first author).</p></li>
-      </ol>
-    </section>
-
-    <!-- ============ RESEARCH ============ -->
-    <section class="section wrap" id="research">
+  <div class="section-heading"><h3>Research in focus</h3><a href="#research">View research <span aria-hidden="true">↗</span></a></div>
+  <div class="focus-grid"><a class="focus-card" href="#research"><img src="./assets/img/shoal.jpg" alt="SHOAL experimental platform" width="1200" height="721"><div><span class="theme-kicker">01 / Physical learning</span><h4>Let real fluids teach the robot.</h4><p>REEF · SHOAL · HydroWrench</p></div><span class="card-arrow" aria-hidden="true">↗</span></a><a class="focus-card" href="#videos"><img src="./assets/img/lts_outdoor.jpg" alt="Quadrupedal swimming robot in the water" width="1400" height="800"><div><span class="theme-kicker">02 / Aquatic robotics</span><h4>From learned forces to swimming.</h4><p>Watch the ICRA 2025 &amp; 2026 demos</p></div><span class="card-arrow" aria-hidden="true">↗</span></a></div>
+  <section class="news-block" id="news"><div class="section-heading"><h3>Latest updates</h3><span class="muted">2026</span></div><ol class="news"><li><time>Sep 2026</time><p><strong>REEF</strong> is now public on <a href="https://arxiv.org/abs/2609.14254" target="_blank" rel="noopener">arXiv</a> — a high-throughput physical-learning platform that lets robots exploit unsteady vortices for propulsion.</p></li><li><time>Sep 2026</time><p>Submitted two papers to <strong>ICRA 2027</strong> and the <strong>HydroWrench</strong> dataset &amp; benchmark to <strong>ICLR 2027</strong>.</p></li><li><time>2026</time><p><strong>Swimming Under Constraints</strong> (safe RL for a quadrupedal swimmer) accepted to <strong>ICRA 2026</strong>, Vienna.</p></li></ol><details class="older-news"><summary>Earlier updates</summary><ol class="news"><li><time>May 2026</time><p>Started a visiting-scholar stay at <strong>Penn State University</strong> (May–Oct 2026).</p></li><li><time>May 2025</time><p><strong>Learn to Swim</strong> presented at <strong>ICRA 2025</strong>, Atlanta.</p></li><li><time>Oct 2023</time><p>Storm-petrel DRL paper published in <em>Bioinspiration &amp; Biomimetics</em> (co-first author).</p></li></ol></details></section>
+</section><section class="panel" aria-labelledby="tab-research" tabindex="0" id="research">
       <h2 class="section-title">Research</h2>
       <p class="section-intro">Animals do not suppress the vortices they shed — they ride them. Engineered swimmers usually treat the same flow as a disturbance. My work asks how a robot can <em>learn</em> to use it, when real-fluid data are scarce and simulation is either too slow or too wrong.</p>
 
@@ -159,9 +104,7 @@
         </div>
       </article>
     </section>
-
-    <!-- ============ PUBLICATIONS ============ -->
-    <section class="section wrap" id="publications">
+<section class="panel" aria-labelledby="tab-publications" tabindex="0" id="publications">
       <div class="section-head">
         <h2 class="section-title">Publications</h2>
         <div class="filters" role="group" aria-label="Filter publications">
@@ -287,9 +230,7 @@
       </ol>
       <p class="more">Full list on <a href="https://scholar.google.com/citations?user=3WVj0IoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
     </section>
-
-    <!-- ============ VIDEOS ============ -->
-    <section class="section wrap" id="videos">
+<section class="panel" aria-labelledby="tab-videos" tabindex="0" id="videos">
       <h2 class="section-title">ICRA Videos</h2>
       <p class="section-intro">See our quadrupedal swimmer in action: learned hydrodynamic modeling at ICRA 2025 and safe on-hardware reinforcement learning at ICRA 2026.</p>
       <div class="videos">
@@ -311,9 +252,7 @@
         </figure>
       </div>
     </section>
-
-    <!-- ============ EXPERIENCE ============ -->
-    <section class="section wrap" id="experience">
+<section class="panel" aria-labelledby="tab-experience" tabindex="0" id="experience">
       <h2 class="section-title">Experience &amp; Education</h2>
       <div class="cols">
         <ol class="timeline">
@@ -327,9 +266,7 @@
         </ol>
       </div>
     </section>
-
-    <!-- ============ LIFE / PROJECTS ============ -->
-    <section class="section wrap" id="life">
+<section class="panel" aria-labelledby="tab-life" tabindex="0" id="life">
       <h2 class="section-title">Beyond the Lab</h2>
       <div class="life">
         <figure class="life-photo"><img src="./assets/img/life.jpg" alt="Fei Han" loading="lazy" width="700" height="1040"></figure>
@@ -345,16 +282,8 @@
         </div>
       </div>
     </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <p>© 2026 Fei Han · <a href="mailto:hanfei@westlake.edu.cn">hanfei@westlake.edu.cn</a></p>
-      <p class="muted">Last updated September 2026</p>
-    </div>
-  </footer>
-
+<footer class="footer"><p>© 2026 Fei Han</p><p>Learning to move with the flow.</p></footer>
+</main></div>
   <dialog class="bib-dialog" id="bib-dialog">
     <form method="dialog">
       <div class="bib-head"><strong>BibTeX</strong><div><button type="button" class="chip" id="bib-copy">Copy</button><button class="chip">Close</button></div></div>
@@ -395,6 +324,6 @@
   doi     = {10.1088/1748-3190/ad00a2}
 }</template>
 
-  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/main.js?v=tabs-1"></script>
 </body>
 </html>
