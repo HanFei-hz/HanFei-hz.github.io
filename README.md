@@ -29,6 +29,14 @@ Open `index.html` in a browser, or run `python -m http.server` in this folder an
 
 MIT
 
+## Private traffic analytics
+
+Cloudflare Web Analytics is installed once at the end of `index.html` (October 19, 2026). View reports by signing in to your Cloudflare account, opening **Web Analytics**, and selecting **hanfei-hz.github.io**. No visitor counter or reports are displayed on the public homepage. Access to the reports is controlled by your Cloudflare account permissions.
+
+The beacon token in the HTML is a public site identifier, not an account API key. Keep account credentials out of this repository. Statistics begin after installation and may take a few minutes to appear. Cloudflare's default SPA tracking remains enabled for the site's tab navigation; page views and visits are different metrics.
+
+Setup documentation: https://developers.cloudflare.com/web-analytics/get-started/
+
 ## Navigation and design
 
 The six panels are About, Research, Publications, Videos, Resume, and Beyond the Lab. Only the active panel is shown when JavaScript is available. Direct hashes (including #video-icra2025, #video-icra2026, and #news), browser back/forward, and keyboard Arrow/Home/End navigation are supported. Videos pause when their panel is left. Without JavaScript, all content remains readable; printing also includes all panels.
