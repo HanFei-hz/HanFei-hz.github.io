@@ -19,7 +19,7 @@ assets/files/           CV and the RL Explorer page
 ## Common edits
 
 - Edit the bilingual strings in `scripts/build_content.py`, then run `python scripts/build_content.py`. Commit both generated pages; hosting does not run a build.
-- **Publications:** edit the `PAPERS` list. Status is `published`, `accepted` or `review`; accepted papers share the published/accepted filter. Keep summaries focused on the work, without performance metrics.
+- **Publications:** edit the `PAPERS` list. Status is `published`, `accepted` or `review`; accepted papers share the published/accepted filter. Keep summaries focused on the work, without performance metrics. Fei is first author of both From Gaits to Routes (ICRA 2027, under review) and HydroWrench (ICLR 2027, under review).
 - **BibTeX:** edit `content/shared.html` and refer to the template ID in the paper entry. The REEF BibTeX cites the public arXiv version; its visible manuscript status is Nature Mechanical Engineering, under review.
 - **Research periods:** use confirmed personal participation periods, not publication years or fund execution dates. RoboMaster participation was September 2016–2019; captain in the 2017–2018 academic year.
 - **Doctoral training:** Westlake University–Zhejiang University joint PhD training. The doctoral research laboratory is Westlake's [i4FSI Lab](https://i4fsi.lab.westlake.edu.cn/).
