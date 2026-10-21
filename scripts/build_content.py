@@ -11,7 +11,7 @@ SHARED = (ROOT / 'content/shared.html').read_text(encoding='utf-8')
 ICONS = re.search(r'<svg[\s\S]*?</svg>', SHARED).group(0)
 BIB = '\n'.join(re.findall(r'<template[\s\S]*?</template>', SHARED))
 VERSION = '20261021'
-CV_VERSION = '20261021-print'
+CV_VERSION = '20261021-type'
 
 def icon(name):
     return f'<svg class="ic" aria-hidden="true"><use href="#i-{name}"/></svg>'
