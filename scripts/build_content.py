@@ -11,7 +11,7 @@ SHARED = (ROOT / 'content/shared.html').read_text(encoding='utf-8')
 ICONS = re.search(r'<svg[\s\S]*?</svg>', SHARED).group(0)
 BIB = '\n'.join(re.findall(r'<template[\s\S]*?</template>', SHARED))
 VERSION = '20261021'
-CV_VERSION = '20261021-author'
+CV_VERSION = '20261021-advisor'
 
 def icon(name):
     return f'<svg class="ic" aria-hidden="true"><use href="#i-{name}"/></svg>'
@@ -145,7 +145,7 @@ def build(zh=False):
     experience=f'<h2 class="section-title">{t("Education and experience","教育与经历")}</h2>'+heading('Education','教育经历')
     experience+=timeline([
       (t('Aug 2023 – Jun 2027 (expected)','2023.08—2027.06（预计）'),t('Joint PhD Program · Westlake University &amp; Zhejiang University','联合培养博士 · 西湖大学—浙江大学'),t('Computer Science and Technology · Advisor: Prof. Dixia Fan. Research at ','计算机科学与技术 · 导师：范迪夏教授。博士研究所在实验室：')+external('https://i4fsi.lab.westlake.edu.cn/',t('Westlake University’s i4FSI Lab','西湖大学 i4FSI 实验室'))+t('.','。')),
-      (t('Sep 2019 – Jun 2022','2019.09—2022.06'),t('MEng · University of Chinese Academy of Sciences','硕士 · 中国科学院大学'),t('Pattern Recognition and Intelligent Systems. Research at the State Key Laboratory of Robotics, Shenyang Institute of Automation, Chinese Academy of Sciences.','模式识别与智能系统。培养单位：中国科学院沈阳自动化研究所机器人学国家重点实验室。')),
+      (t('Sep 2019 – Jun 2022','2019.09—2022.06'),t('MEng · University of Chinese Academy of Sciences','硕士 · 中国科学院大学'),t('Pattern Recognition and Intelligent Systems · Advisor: Xingang Zhao. Research at the State Key Laboratory of Robotics, Shenyang Institute of Automation, Chinese Academy of Sciences.','模式识别与智能系统 · 导师：赵新刚。培养单位：中国科学院沈阳自动化研究所机器人学国家重点实验室。')),
       (t('Sep 2015 – Jul 2019','2015.09—2019.07'),t('BEng · Zhengzhou University','学士 · 郑州大学'),t('Measurement and Control Technology and Instruments.','测控技术与仪器。')),
     ])
     experience+=heading('Research appointments','科研任职')+timeline([
