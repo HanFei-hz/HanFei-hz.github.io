@@ -1,11 +1,22 @@
 'use strict';
 
+const siteText = document.documentElement.lang.toLowerCase().startsWith('zh') ? {
+  name: '韩非', lightTheme: '切换为浅色主题', darkTheme: '切换为深色主题',
+  showContacts: '展开联系方式与链接', hideContacts: '收起联系方式与链接',
+  copy: '复制', copied: '已复制', manualCopy: '请按 Ctrl+C 复制', videoPending: '视频即将上线'
+} : {
+  name: 'Fei Han', lightTheme: 'Switch to light theme', darkTheme: 'Switch to dark theme',
+  showContacts: 'Show contact details and links', hideContacts: 'Hide contact details and links',
+  copy: 'Copy', copied: 'Copied', manualCopy: 'Press Ctrl+C to copy', videoPending: 'Video coming soon'
+};
+
 // Theme preference is applied in the document head before first paint.
 (() => {
   const button = document.getElementById('theme-toggle');
+  if (!button) return;
   const sync = () => {
     const dark = document.documentElement.dataset.theme === 'dark';
-    button.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    button.setAttribute('aria-label', dark ? siteText.lightTheme : siteText.darkTheme);
   };
   button.addEventListener('click', () => {
     const theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -20,9 +31,10 @@
 (() => {
   const panels = [...document.querySelectorAll('.panel')];
   const nav = document.querySelector('.tab-nav');
+  if (!nav || !panels.length) return;
   const tabs = [...nav.querySelectorAll('.tab-link')];
   const main = document.getElementById('main-content');
-  const titles = new Map(tabs.map(tab => [tab.getAttribute('aria-controls'), tab.textContent]));
+  const titles = new Map(tabs.map(tab => [tab.getAttribute('aria-controls'), tab.textContent.trim()]));
   nav.setAttribute('role', 'tablist');
   tabs.forEach(tab => tab.setAttribute('role', 'tab'));
   panels.forEach(panel => panel.setAttribute('role', 'tabpanel'));
@@ -52,11 +64,12 @@
         }
       }
     });
-    document.title = `${titles.get(panel.id)} · Fei Han`;
+    document.title = `${titles.get(panel.id)} · ${siteText.name}`;
+    document.dispatchEvent(new CustomEvent('site:sectionchange'));
     if (focus) panel.focus({ preventScroll: true });
     if (scroll) requestAnimationFrame(() => {
       if (target !== panel) target.scrollIntoView({ block: 'start', behavior: 'instant' });
-      else window.scrollTo({ top: Math.max(0, main.getBoundingClientRect().top + window.scrollY - 20), behavior: 'instant' });
+      else if (main) window.scrollTo({ top: Math.max(0, main.getBoundingClientRect().top + window.scrollY - 20), behavior: 'instant' });
     });
   }
 
@@ -69,6 +82,10 @@
     const link = event.target.closest('a[href^="#"]');
     if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     const hash = link.getAttribute('href');
+    let linkedTarget;
+    try { linkedTarget = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (_) { return; }
+    // Leave skip links and other anchors outside the panels to the browser.
+    if (!linkedTarget?.closest('.panel')) return;
     const { target } = resolve(hash);
     if (!target) return;
     event.preventDefault();
@@ -98,10 +115,17 @@
 (() => {
   const button = document.getElementById('contact-toggle');
   const details = document.getElementById('profile-details');
-  button.addEventListener('click', () => {
-    const open = details.classList.toggle('is-open');
+  if (!button || !details) return;
+  const sync = () => {
+    const open = details.classList.contains('is-open');
     button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? siteText.hideContacts : siteText.showContacts);
+  };
+  button.addEventListener('click', () => {
+    details.classList.toggle('is-open');
+    sync();
   });
+  sync();
 })();
 
 // ---------- publication filter ----------
@@ -117,7 +141,7 @@
     // Hide a group heading when every paper under it is filtered out.
     groups.forEach((g) => {
       const list = g.nextElementSibling;
-      g.hidden = !list.querySelector('.pub:not([hidden])');
+      g.hidden = !list?.querySelector('.pub:not([hidden])');
     });
   }));
 })();
@@ -127,23 +151,25 @@
   const dialog = document.getElementById('bib-dialog');
   const pre = document.getElementById('bib-text');
   const copy = document.getElementById('bib-copy');
+  if (!dialog || !pre || !copy) return;
+  copy.setAttribute('aria-live', 'polite');
   document.querySelectorAll('[data-bib]').forEach((btn) => btn.addEventListener('click', () => {
     const tpl = document.getElementById(btn.dataset.bib);
     pre.textContent = tpl ? tpl.innerHTML.replace(/&amp;/g, '&').trim() : '';
-    copy.textContent = 'Copy';
+    copy.textContent = siteText.copy;
     if (dialog.showModal) dialog.showModal(); else dialog.setAttribute('open', '');
   }));
   copy.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(pre.textContent);
-      copy.textContent = 'Copied';
+      copy.textContent = siteText.copied;
     } catch (e) {
       const range = document.createRange();
       range.selectNodeContents(pre);
       const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-      copy.textContent = 'Press Ctrl+C';
+      if (sel) { sel.removeAllRanges(); sel.addRange(range); }
+      copy.textContent = /Mac|iPhone|iPad/.test(navigator.platform)
+        ? siteText.manualCopy.replace('Ctrl', '⌘') : siteText.manualCopy;
     }
   });
 })();
@@ -157,8 +183,8 @@
     const showPlaceholder = () => {
       frame.innerHTML =
         '<div class="video-placeholder"><div>' +
-        '<svg viewBox="0 0 24 24"><use href="#i-play"/></svg>' +
-        'Video coming soon</div></div>';
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg>' +
+        siteText.videoPending + '</div></div>';
     };
     // The error may fire before this script runs, so also check the current state.
     if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) return showPlaceholder();

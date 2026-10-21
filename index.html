@@ -1,30 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fei Han · Bio-inspired Swimming Robots</title>
-  <meta name="description" content="Fei Han — Ph.D. student at Westlake University. Learning-based control and hydrodynamic modeling for bio-inspired swimming robots.">
-  <meta property="og:title" content="Fei Han · Bio-inspired Swimming Robots">
-  <meta property="og:description" content="Robots that learn to swim with unsteady flow: physical learning platforms, data-driven hydrodynamics, safe RL and planning.">
-  <meta property="og:image" content="https://hanfei-hz.github.io/assets/img/shoal.jpg">
-  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-
-  <script>
-    // Apply the saved theme before first paint to avoid a flash.
-    document.documentElement.dataset.theme = 'dark';
-    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/main.css?v=tabs-1">
-</head>
-
-<body>
-<a class="skip-link" href="#about">Skip to content</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fei Han · Robot Learning and Bioinspired Robotics</title><meta name="description" content="Fei Han, PhD student at Westlake University. Bioinspired propulsion, robot learning, hydrodynamic modeling and soft robotics. Expected graduation: June 2027."><meta property="og:title" content="Fei Han · Robotics Research"><meta property="og:description" content="Fei Han, PhD student at Westlake University. Bioinspired propulsion, robot learning, hydrodynamic modeling and soft robotics. Expected graduation: June 2027."><meta property="og:image" content="https://hanfei-hz.github.io/assets/img/shoal.jpg"><meta property="og:url" content="https://hanfei-hz.github.io/"><meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://hanfei-hz.github.io/"><link rel="alternate" hreflang="en" href="https://hanfei-hz.github.io/"><link rel="alternate" hreflang="zh-CN" href="https://hanfei-hz.github.io/zh.html"><link rel="alternate" hreflang="x-default" href="https://hanfei-hz.github.io/"><link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<script>document.documentElement.dataset.theme='dark';try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
+<script src="./assets/js/language.js?v=20261021"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/main.css?v=20261021"></head>
+<body><a class="skip-link" href="#about">Skip to content</a><svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v12H4z M4 7l8 6 8-6"/></symbol>
     <symbol id="i-scholar" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6 9.2V16c0 1.7 2.7 3.5 6 3.5s6-1.8 6-3.5v-3.8l-6 3.3-6-3.3z"/></symbol>
     <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></symbol>
@@ -40,272 +21,45 @@
     <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
   </svg>
 <div class="site-shell" id="top"><aside class="profile-card" aria-label="Profile">
- <div class="profile-top"><img class="portrait" src="./assets/img/portrait-neutral.jpg" alt="Portrait of Fei Han" width="560" height="558"><div class="profile-identity"><h1>Fei Han <span lang="zh">韩非</span></h1><p class="role-label">Ph.D. Student</p><p class="profile-affiliation">Westlake University</p></div></div>
- <button class="contact-toggle" id="contact-toggle" aria-expanded="false" aria-controls="profile-details">Contact &amp; links <span aria-hidden="true">⌄</span></button>
- <div class="profile-details" id="profile-details"><div class="profile-divider"></div><dl class="profile-facts"><div><dt><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Email</dt><dd><a href="mailto:hanfei@westlake.edu.cn">hanfei@westlake.edu.cn</a></dd></div><div><dt><svg class="ic" aria-hidden="true"><use href="#i-scholar"/></svg> Research</dt><dd>Bio-inspired swimming robots</dd></div><div><dt><svg class="ic" aria-hidden="true"><use href="#i-link"/></svg> Visiting scholar</dt><dd>Penn State University<span>May – October 2026</span></dd></div></dl><ul class="links">
-          <li><a class="pill" href="mailto:hanfei@westlake.edu.cn"><svg class="ic"><use href="#i-mail"/></svg>Email</a></li>
-          <li><a class="pill" href="https://scholar.google.com/citations?user=3WVj0IoAAAAJ" target="_blank" rel="noopener"><svg class="ic"><use href="#i-scholar"/></svg>Google Scholar</a></li>
-          <li><a class="pill" href="https://github.com/HanFei-hz" target="_blank" rel="noopener"><svg class="ic"><use href="#i-github"/></svg>GitHub</a></li>
-          <li><a class="pill" href="https://www.researchgate.net/profile/Fei-Han-60" target="_blank" rel="noopener"><svg class="ic"><use href="#i-rg"/></svg>ResearchGate</a></li>
-          <li><a class="pill pill-solid" href="./assets/files/CV-Fei.pdf" target="_blank" rel="noopener"><svg class="ic"><use href="#i-cv"/></svg>CV</a></li>
-        </ul><p class="profile-note">Learning, modeling &amp; control<br>in real fluids.</p></div>
-</aside><main class="content-card" id="main-content">
-<header class="panel-toolbar"><nav class="tab-nav" aria-label="Main sections"><a class="tab-link" id="tab-about" href="#about" aria-controls="about">About</a><a class="tab-link" id="tab-research" href="#research" aria-controls="research">Research</a><a class="tab-link" id="tab-publications" href="#publications" aria-controls="publications">Publications</a><a class="tab-link" id="tab-videos" href="#videos" aria-controls="videos">Videos</a><a class="tab-link" id="tab-experience" href="#experience" aria-controls="experience">Resume</a><a class="tab-link" id="tab-life" href="#life" aria-controls="life">Beyond the Lab</a></nav><button class="icon-btn" id="theme-toggle" aria-label="Switch color theme"><svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg></button></header>
-<section class="panel" id="about" aria-labelledby="tab-about" tabindex="0">
-  <p class="eyebrow">Robotics · Learning · Fluid dynamics</p>
-  <h2 class="section-title">About me</h2>
-  <div class="intro-banner"><p class="intro-label">Learning in the real world</p><h3>Robots that learn to swim<br><em>with unsteady flow.</em></h3><p>From physical experiments to intelligent aquatic motion.</p><a class="pill pill-solid" href="#research">Explore my research <span aria-hidden="true">↗</span></a><div class="flow-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
-  <div class="bio"><p>I study how robots learn to move in real fluids. At <a href="https://i4fsi.lab.westlake.edu.cn/" target="_blank" rel="noopener">Westlake University’s i4FSI Lab</a>, advised by Prof. Dixia Fan, I develop experimental learning platforms, hydrodynamic models, and safe control for bio-inspired swimmers.</p><p>I am also a visiting scholar at <a href="https://sites.psu.edu/libr/team/" target="_blank" rel="noopener">Penn State University</a> (May–October 2026), studying how centipedes swim across Reynolds numbers.</p></div><ul class="tags">
-          <li>Bio-inspired robotics</li>
-          <li>Reinforcement learning</li>
-          <li>Physical learning in real fluids</li>
-          <li>Data-driven hydrodynamics</li>
-          <li>Legged swimming</li>
-        </ul><section class="stats" aria-label="Publication summary">
-      <div><strong>2</strong><span>ICRA papers<br>2025 · 2026</span></div>
-      <div><strong>3</strong><span>submissions under review<br>ICRA 2027 ×2 · ICLR 2027</span></div>
-      <div><strong>1</strong><span>flagship preprint<br>REEF, arXiv 2026</span></div>
-      <div><strong>7</strong><span>peer-reviewed &amp; preprint<br>papers in total</span></div>
-    </section>
-  <div class="section-heading"><h3>Research in focus</h3><a href="#research">View research <span aria-hidden="true">↗</span></a></div>
-  <div class="focus-grid"><a class="focus-card" href="#research"><img src="./assets/img/shoal.jpg" alt="SHOAL experimental platform" width="1200" height="721"><div><span class="theme-kicker">01 / Physical learning</span><h4>Let real fluids teach the robot.</h4><p>REEF · SHOAL · HydroWrench</p></div><span class="card-arrow" aria-hidden="true">↗</span></a><a class="focus-card" href="#videos"><img src="./assets/img/lts_outdoor.jpg" alt="Quadrupedal swimming robot in the water" width="1400" height="800"><div><span class="theme-kicker">02 / Aquatic robotics</span><h4>From learned forces to swimming.</h4><p>Watch the ICRA 2025 &amp; 2026 demos</p></div><span class="card-arrow" aria-hidden="true">↗</span></a></div>
-  <section class="news-block" id="news"><div class="section-heading"><h3>Latest updates</h3><span class="muted">2026</span></div><ol class="news"><li><time>Sep 2026</time><p><strong>REEF</strong> is now public on <a href="https://arxiv.org/abs/2609.14254" target="_blank" rel="noopener">arXiv</a> — a high-throughput physical-learning platform that lets robots exploit unsteady vortices for propulsion.</p></li><li><time>Sep 2026</time><p>Submitted two papers to <strong>ICRA 2027</strong> and the <strong>HydroWrench</strong> dataset &amp; benchmark to <strong>ICLR 2027</strong>.</p></li><li><time>2026</time><p><strong>Swimming Under Constraints</strong> (safe RL for a quadrupedal swimmer) accepted to <strong>ICRA 2026</strong>, Vienna.</p></li></ol><details class="older-news"><summary>Earlier updates</summary><ol class="news"><li><time>May 2026</time><p>Started a visiting-scholar stay at <strong>Penn State University</strong> (May–Oct 2026).</p></li><li><time>May 2025</time><p><strong>Learn to Swim</strong> presented at <strong>ICRA 2025</strong>, Atlanta.</p></li><li><time>Oct 2023</time><p>Storm-petrel DRL paper published in <em>Bioinspiration &amp; Biomimetics</em> (co-first author).</p></li></ol></details></section>
-</section><section class="panel" aria-labelledby="tab-research" tabindex="0" id="research">
-      <h2 class="section-title">Research</h2>
-      <p class="section-intro">Animals do not suppress the vortices they shed — they ride them. Engineered swimmers usually treat the same flow as a disturbance. My work asks how a robot can <em>learn</em> to use it, when real-fluid data are scarce and simulation is either too slow or too wrong.</p>
-
-      <article class="theme">
-        <figure class="theme-media"><img src="./assets/img/shoal.jpg" alt="SHOAL eight-channel towing-tank array for high-throughput fluid–structure experiments" loading="lazy" width="1200" height="721"></figure>
-        <div class="theme-body">
-          <p class="theme-kicker">01 · Physical learning</p>
-          <h3>Learning directly from real fluid</h3>
-          <p>Instead of learning in a simulator and hoping it transfers, I learn in water. <strong>REEF</strong> couples <strong>SHOAL</strong>, an eight-channel high-throughput array for real fluid–structure interaction, with <strong>V-STAR</strong>, a staged imitation → offline → online learning algorithm. Across lift-, drag- and jet-based propulsors it more than doubles the attainable force envelope of parameterized search, and PIV shows the gains come from coordinated vortex formation. The same data infrastructure underlies <strong>HydroWrench</strong>, a 116k-trajectory benchmark for dynamic load reconstruction.</p>
-          <p class="theme-refs">REEF (arXiv 2026) · HydroWrench (ICLR 2027, under review)</p>
-        </div>
-      </article>
-
-      <article class="theme theme-flip">
-        <figure class="theme-media"><img src="./assets/img/lts_outdoor.jpg" alt="Quadrupedal webbed-foot swimming robot in an outdoor pond" loading="lazy" width="1400" height="800"></figure>
-        <div class="theme-body">
-          <p class="theme-kicker">02 · Legged swimming</p>
-          <h3>A quadruped that learns to swim — from model to route</h3>
-          <p>One webbed-foot quadruped platform, three layers of autonomy. <strong>Learn to Swim</strong> replaces empirical drag formulas with an LSTM hydrodynamic model trained on tank experiments, cutting straight-line deviation and turning time by ~47%. <strong>Swimming Under Constraints</strong> learns gaits on hardware with a PID-regulated Lagrangian safe-RL method that maximizes thrust while bounding destabilizing lift. <strong>From Gaits to Routes</strong> composes those gaits into execution-aware route following (82.5% vs 10.5% strict success over direct PPO).</p>
-          <p class="theme-refs">ICRA 2025 · ICRA 2026 · ICRA 2027 (under review)</p>
-        </div>
-      </article>
-
-      <article class="theme">
-        <figure class="theme-media"><img class="fit" src="./assets/img/petrel_model.jpg" alt="Storm petrel morphology and joint model used for deep reinforcement learning" loading="lazy" width="1200" height="663"></figure>
-        <div class="theme-body">
-          <p class="theme-kicker">03 · Locomotion across interfaces and scales</p>
-          <h3>What animals can teach a controller</h3>
-          <p>Storm petrels "walk" on the sea surface and use their feet as anchors in the wind. With a 9-DoF morphological model and a hybrid aero–hydrodynamic force model, we used deep reinforcement learning to reproduce both <em>pattering</em> and <em>sea-anchoring</em> and to explain the gaits the birds choose. At Penn State I am now studying the stone centipede, which swims head-first on a tail-to-head body wave — a reduced-order model reproduces its speed and pins the thrust on its legs.</p>
-          <p class="theme-refs">Bioinspiration &amp; Biomimetics 2023 · centipede swimming (ongoing)</p>
-        </div>
-      </article>
-    </section>
-<section class="panel" aria-labelledby="tab-publications" tabindex="0" id="publications">
-      <div class="section-head">
-        <h2 class="section-title">Publications</h2>
-        <div class="filters" role="group" aria-label="Filter publications">
-          <button class="chip is-active" data-filter="all">All</button>
-          <button class="chip" data-filter="published">Published</button>
-          <button class="chip" data-filter="preprint">Preprint</button>
-          <button class="chip" data-filter="review">Under review</button>
-        </div>
-      </div>
-      <p class="legend">* equal contribution &nbsp;·&nbsp; ✉ corresponding author</p>
-
-      <h3 class="pub-group" data-group="main">Research papers</h3>
-      <ol class="pubs">
-
-        <li class="pub" data-status="preprint">
-          <figure class="pub-thumb"><img src="./assets/img/reef_overview.jpg" alt="REEF overview figure" loading="lazy"></figure>
-          <div class="pub-body">
-            <p class="venue"><span class="badge badge-preprint">Preprint</span> arXiv 2026</p>
-            <h4>Embracing Flow Unsteadiness: A High-Throughput Learning Platform Enables Vortex-Exploiting Bioinspired Propulsion</h4>
-            <p class="authors"><b>Fei Han</b>*, Xinyu Cui*, Zhipeng Wang*, Ning Yang, Hang Xu, Haifeng Zhang, Zhongming Hu, Jun Wang, Junfeng Du, Dixia Fan✉</p>
-            <p class="tldr">REEF = SHOAL (8-channel real-fluid array) + V-STAR (staged learning). More than 2× the force envelope of parameterized search; force-trained policies transfer zero-shot to free-swimming robots.</p>
-            <div class="pub-links">
-              <a href="https://arxiv.org/abs/2609.14254" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>arXiv</a>
-              <a href="https://arxiv.org/pdf/2609.14254v1" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pdf"/></svg>PDF</a>
-              <button data-bib="bib-reef"><svg class="ic"><use href="#i-quote"/></svg>BibTeX</button>
-            </div>
-          </div>
-        </li>
-
-        <li class="pub" data-status="published">
-          <figure class="pub-thumb"><img src="./assets/img/saferl_framework.jpg" alt="ACPPO-PID safe RL framework" loading="lazy"></figure>
-          <div class="pub-body">
-            <p class="venue"><span class="badge badge-pub">ICRA 2026</span> IEEE Int. Conf. on Robotics and Automation, Vienna</p>
-            <h4>Swimming Under Constraints: A Safe Reinforcement Learning Framework for Quadrupedal Bio-Inspired Propulsion</h4>
-            <p class="authors">Xinyu Cui*, <b>Fei Han</b>*✉, Hang Xu, Yongcheng Zeng, Luoyang Sun, Ruizhi Zhang, Jian Zhao, Haifeng Zhang, Weikun Li, Hao Chen, Jun Wang, Dixia Fan✉</p>
-            <p class="tldr">ACPPO-PID: constrained PPO with a PID-regulated Lagrange multiplier, trained on hardware in a towing tank; higher thrust efficiency with suppressed lift oscillation, transferred to free swimming.</p>
-            <div class="pub-links">
-              <a href="https://arxiv.org/abs/2603.04073" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>arXiv</a>
-              <a href="https://arxiv.org/pdf/2603.04073v1" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pdf"/></svg>PDF</a>
-              <a href="#video-icra2026"><svg class="ic"><use href="#i-play"/></svg>Video</a>
-              <button data-bib="bib-saferl"><svg class="ic"><use href="#i-quote"/></svg>BibTeX</button>
-            </div>
-          </div>
-        </li>
-
-        <li class="pub" data-status="published">
-          <figure class="pub-thumb"><img src="./assets/img/lts_experiment.jpg" alt="Learn to Swim hardware experiment" loading="lazy"></figure>
-          <div class="pub-body">
-            <p class="venue"><span class="badge badge-pub">ICRA 2025</span> IEEE Int. Conf. on Robotics and Automation, Atlanta</p>
-            <h4>Learn to Swim: Data-Driven LSTM Hydrodynamic Model for Quadruped Robot Gait Optimization</h4>
-            <p class="authors"><b>Fei Han</b>, Pengming Guo, Hao Chen, Weikun Li, Jingbo Ren, Naijun Liu, Ning Yang, Dixia Fan✉</p>
-            <p class="tldr">FED-LSTM, trained on leg-force and body-drag tank data, replaces empirical formulas for NSGA-II gait optimization: +47.1% straight-line accuracy and 47.6% faster turns on hardware.</p>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1109/ICRA55743.2025.11128080" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>IEEE</a>
-              <a href="https://arxiv.org/abs/2505.03146" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pdf"/></svg>arXiv</a>
-              <a href="https://github.com/HanFei-hz/Dog_LSTM" target="_blank" rel="noopener"><svg class="ic"><use href="#i-code"/></svg>Code</a>
-              <a href="#video-icra2025"><svg class="ic"><use href="#i-play"/></svg>Video</a>
-              <button data-bib="bib-lts"><svg class="ic"><use href="#i-quote"/></svg>BibTeX</button>
-            </div>
-          </div>
-        </li>
-
-        <li class="pub" data-status="published">
-          <figure class="pub-thumb"><img src="./assets/img/petrel_drl.jpg" alt="Storm petrel DRL framework" loading="lazy"></figure>
-          <div class="pub-body">
-            <p class="venue"><span class="badge badge-pub">B&amp;B 2023</span> Bioinspiration &amp; Biomimetics 18(6), 066016</p>
-            <h4>Exploring Storm Petrel Pattering and Sea-Anchoring Using Deep Reinforcement Learning</h4>
-            <p class="authors">Jiaqi Xue*, <b>Fei Han</b>*, Brett Klaassen van Oorschot, Glenna Clifton, Dixia Fan✉</p>
-            <p class="tldr">A 9-DoF petrel model with hybrid aero-/hydrodynamic forces, trained with DDPG, reproduces surface pattering and sea-anchoring gaits.</p>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1088/1748-3190/ad00a2" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>DOI</a>
-              <button data-bib="bib-petrel"><svg class="ic"><use href="#i-quote"/></svg>BibTeX</button>
-            </div>
-          </div>
-        </li>
-
-        <li class="pub pub-compact" data-status="review">
-          <div class="pub-body">
-            <p class="venue"><span class="badge badge-review">Under review</span> ICRA 2027</p>
-            <h4>From Gaits to Routes: Execution-Aware Hybrid Behavior Planning for Quadrupedal Swimming with Experiment-Calibrated Hydrodynamics</h4>
-            <p class="tldr">Hybrid behavior commands + predictive skill distillation into a 50 Hz policy; 82.5% strict route-following success vs 10.5% for direct PPO in 720 matched episodes.</p>
-          </div>
-        </li>
-
-        <!-- TODO: second ICRA 2027 submission — fill in title / one-line summary, then remove `hidden`.
-        <li class="pub pub-compact" data-status="review">
-          <div class="pub-body">
-            <p class="venue"><span class="badge badge-review">Under review</span> ICRA 2027</p>
-            <h4>TITLE</h4>
-            <p class="tldr">ONE-LINE SUMMARY</p>
-          </div>
-        </li>
-        -->
-
-        <li class="pub pub-compact" data-status="review">
-          <div class="pub-body">
-            <p class="venue"><span class="badge badge-review">Under review</span> ICLR 2027</p>
-            <h4>HydroWrench: A Dataset and Benchmark for Dynamic Load Reconstruction in Bioinspired Aquatic Mechanisms</h4>
-            <p class="tldr">116,756 command–load trajectories from caudal-fin, webbed-foot and flipper mechanisms with measured six-axis loads, plus a shared benchmark protocol.</p>
-          </div>
-        </li>
-      </ol>
-
-      <h3 class="pub-group" data-group="collab">Collaborations</h3>
-      <ol class="pubs pubs-plain">
-        <li class="pub" data-status="published">
-          <p class="venue"><span class="badge badge-pub">PoF 2023</span> Physics of Fluids 35(10), 101914</p>
-          <h4>Force Decomposition on Flapping Flexible Plate via Impulse Theory and Dynamic Mode Decomposition</h4>
-          <p class="authors">Linlin Kang, Shiying Xiong, Buchen Wu, Chao Li, Mingming Ge, Dehan Yuan, <b>Fei Han</b>, Weicheng Cui</p>
-          <div class="pub-links"><a href="https://doi.org/10.1063/5.0169989" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>DOI</a></div>
-        </li>
-        <li class="pub" data-status="published">
-          <p class="venue"><span class="badge badge-pub">PoF 2023</span> Physics of Fluids 35(9), 091904</p>
-          <h4>Propulsive Performance and Vortex Dynamics of Jellyfish-like Propulsion with Burst-and-Coast Strategy</h4>
-          <p class="authors">Linlin Kang, An-Kang Gao, <b>Fei Han</b>, Weicheng Cui, Xi-Yun Lu</p>
-          <div class="pub-links"><a href="https://doi.org/10.1063/5.0160878" target="_blank" rel="noopener"><svg class="ic"><use href="#i-link"/></svg>DOI</a></div>
-        </li>
-        <li class="pub" data-status="published">
-          <p class="venue"><span class="badge badge-pub">ROBIO 2021</span> IEEE Int. Conf. on Robotics and Biomimetics, Sanya</p>
-          <h4>An Underwater Soft Claw Based on Bionic Principle</h4>
-          <p class="authors">Yanxu Sun, <b>Fei Han</b>, Daohui Zhang, et al.</p>
-        </li>
-      </ol>
-      <p class="more">Full list on <a href="https://scholar.google.com/citations?user=3WVj0IoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p>
-    </section>
-<section class="panel" aria-labelledby="tab-videos" tabindex="0" id="videos">
-      <h2 class="section-title">ICRA Videos</h2>
-      <p class="section-intro">See our quadrupedal swimmer in action: learned hydrodynamic modeling at ICRA 2025 and safe on-hardware reinforcement learning at ICRA 2026.</p>
-      <div class="videos">
-        <figure class="video-card" id="video-icra2025">
-          <div class="video-frame">
-            <video controls preload="metadata" playsinline poster="./assets/img/icra2025-video-poster.jpg">
-              <source src="./assets/videos/icra2025.mp4" type="video/mp4">
-            </video>
-          </div>
-          <figcaption><span class="badge badge-pub">ICRA 2025</span> Learn to Swim</figcaption>
-        </figure>
-        <figure class="video-card" id="video-icra2026">
-          <div class="video-frame">
-            <video controls preload="metadata" playsinline poster="./assets/img/icra2026-video-poster.jpg">
-              <source src="./assets/videos/icra2026.mp4" type="video/mp4">
-            </video>
-          </div>
-          <figcaption><span class="badge badge-pub">ICRA 2026</span> Swimming Under Constraints</figcaption>
-        </figure>
-      </div>
-    </section>
-<section class="panel" aria-labelledby="tab-experience" tabindex="0" id="experience">
-      <h2 class="section-title">Experience &amp; Education</h2>
-      <div class="cols">
-        <ol class="timeline">
-          <li><time>May 2026 – Oct 2026</time><h4>Visiting Scholar · Penn State University</h4><p>Centipede swimming across Reynolds numbers; reduced-order hydrodynamic modeling.</p></li>
-          <li><time>Aug 2023 – present</time><h4>Ph.D. Student · Westlake University</h4><p>Computer Science and Technology, i4FSI Lab (advisor: Prof. Dixia Fan). Learning and control for bio-inspired swimming robots.</p></li>
-          <li><time>Jul 2022 – Aug 2023</time><h4>Research Assistant · Westlake University</h4><p>Experimental data processing and paper writing for bio-inspired robotic systems.</p></li>
-        </ol>
-        <ol class="timeline">
-          <li><time>Sep 2019 – Jun 2022</time><h4>M.Eng. · University of Chinese Academy of Sciences</h4><p>Pattern Recognition and Intelligent Systems. Deep-sea soft gripper for non-destructive grasping.</p></li>
-          <li><time>Sep 2015 – Jul 2019</time><h4>B.Eng. · Zhengzhou University</h4><p>Measurement and Control Technology and Instruments. RoboMaster robotics competition.</p></li>
-        </ol>
-      </div>
-    </section>
-<section class="panel" aria-labelledby="tab-life" tabindex="0" id="life">
-      <h2 class="section-title">Beyond the Lab</h2>
-      <div class="life">
-        <figure class="life-photo"><img src="./assets/img/life.jpg" alt="Fei Han" loading="lazy" width="700" height="1040"></figure>
-        <div>
-          <p>Outside research I train, play badminton and sing — I spent a year with the Xinyue Choir — and I take a camera almost everywhere. Photography has quietly shaped how I make figures for papers.</p>
-          <h3 class="sub">Code &amp; tools</h3>
-          <ul class="repos">
-            <li><a href="https://github.com/HanFei-hz/Dog_LSTM" target="_blank" rel="noopener"><b>Dog_LSTM</b><span>LSTM hydrodynamic model and gait optimization (ICRA 2025)</span></a></li>
-            <li><a href="https://github.com/HanFei-hz/Leg_offlineDRL" target="_blank" rel="noopener"><b>Leg_offlineDRL</b><span>Offline RL (BPPO) for a single swimming leg</span></a></li>
-            <li><a href="https://github.com/HanFei-hz/WaterLily" target="_blank" rel="noopener"><b>WaterLily</b><span>CFD experiments for flapping and undulating bodies</span></a></li>
-            <li><a href="./assets/files/rl_explorer.html" target="_blank" rel="noopener"><b>RL Explorer</b><span>Interactive knowledge graph of reinforcement learning</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-<footer class="footer"><p>© 2026 Fei Han</p><p>Learning to move with the flow.</p></footer>
-</main></div>
-  <dialog class="bib-dialog" id="bib-dialog">
-    <form method="dialog">
-      <div class="bib-head"><strong>BibTeX</strong><div><button type="button" class="chip" id="bib-copy">Copy</button><button class="chip">Close</button></div></div>
-      <pre id="bib-text"></pre>
-    </form>
-  </dialog>
-
-  <template id="bib-reef">@article{han2026reef,
+      <nav class="language-switch" aria-label="Language"><a href="./index.html?lang=en" data-language="en" lang="en" aria-current="page">English</a><a href="./zh.html?lang=zh" data-language="zh" lang="zh-CN" >中文</a></nav>
+      <div class="profile-top"><img class="portrait" src="./assets/img/portrait-neutral.jpg" alt="Portrait of Fei Han" width="560" height="558"><div class="profile-identity"><h1>Fei Han <span lang="zh-CN">韩非</span></h1><p class="role-label">Ph.D. Student</p><p class="profile-affiliation">Westlake University</p></div></div>
+      <button class="contact-toggle" id="contact-toggle" aria-expanded="false" aria-controls="profile-details">Contact &amp; links <span aria-hidden="true">⌄</span></button>
+      <div class="profile-details" id="profile-details"><div class="profile-divider"></div><dl class="profile-facts">
+      <div><dt><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> Email</dt><dd><a href="mailto:hanfei@westlake.edu.cn">hanfei@westlake.edu.cn</a></dd></div>
+      <div><dt><svg class="ic" aria-hidden="true"><use href="#i-link"/></svg> Website</dt><dd><a href="https://hanfei-hz.github.io/">hanfei-hz.github.io</a></dd></div>
+      <div><dt><svg class="ic" aria-hidden="true"><use href="#i-scholar"/></svg> Research</dt><dd>Bioinspired propulsion &amp; robot learning</dd></div>
+      <div><dt><svg class="ic" aria-hidden="true"><use href="#i-cv"/></svg> Expected graduation</dt><dd>June 2027</dd></div>
+      <div><dt><svg class="ic" aria-hidden="true"><use href="#i-link"/></svg> Visiting research</dt><dd>Penn State University<span>April – October 2026</span></dd></div></dl>
+      <ul class="links"><li><a class="pill" href="https://scholar.google.com/citations?user=3WVj0IoAAAAJ" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-scholar"/></svg>Google Scholar</a></li><li><a class="pill" href="https://github.com/HanFei-hz" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li><li><a class="pill" href="https://www.researchgate.net/profile/Fei-Han-60" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-rg"/></svg>ResearchGate</a></li><li><a class="pill pill-solid" href="#experience"><svg class="ic" aria-hidden="true"><use href="#i-cv"/></svg>CVs in English &amp; Chinese</a></li></ul>
+      <p class="profile-note">Experiments, models and learning<br>for robots in real fluids.</p></div></aside><main class="content-card" id="main-content"><header class="panel-toolbar"><nav class="tab-nav" aria-label="Main sections"><a class="tab-link" id="tab-about" href="#about" aria-controls="about">About</a><a class="tab-link" id="tab-research" href="#research" aria-controls="research">Research</a><a class="tab-link" id="tab-publications" href="#publications" aria-controls="publications">Publications</a><a class="tab-link" id="tab-videos" href="#videos" aria-controls="videos">Videos</a><a class="tab-link" id="tab-experience" href="#experience" aria-controls="experience">Resume</a><a class="tab-link" id="tab-life" href="#life" aria-controls="life">Community</a></nav><button class="icon-btn" id="theme-toggle" aria-label="Switch color theme"><svg class="ic ic-moon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="ic ic-sun" aria-hidden="true"><use href="#i-sun"/></svg></button></header><section class="panel" id="about" aria-labelledby="tab-about" tabindex="0"><p class="eyebrow">Robotics · Learning · Fluid dynamics</p><h2 class="section-title">About me</h2>
+      <div class="intro-banner"><p class="intro-label">Bioinspired propulsion and robot learning</p><h3>Learning to move<br><em>in real fluids.</em></h3><p>Experimental platforms, hydrodynamic models and learning-based control.</p><a class="pill pill-solid" href="#research">Explore my research <span aria-hidden="true">↗</span></a><div class="flow-art" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="bio"><p>I am a PhD student in Computer Science and Technology at <a href="https://i4fsi.lab.westlake.edu.cn/" target="_blank" rel="noopener">Westlake University’s i4FSI Lab</a>, advised by Prof. Dixia Fan. I study bioinspired propulsion and robot learning, with expected graduation in June 2027.</p>
+      <p>Since December 2023, I have pursued parallel research on the REEF propulsor platform and quadruped swimming, connecting force measurements, dynamics modeling, policy learning and robot experiments. My earlier work covers deep-sea soft grippers and storm-petrel locomotion.</p>
+      <p>My April–October 2026 visiting research at <a href="https://sites.psu.edu/libr/team/" target="_blank" rel="noopener">Penn State University</a> focuses on reduced-order dynamics, numerical simulation and experiment design for multilegged swimming.</p></div>
+      <ul class="tags"><li>Robot learning</li><li>Hydrodynamic modeling</li><li>Bioinspired robotics</li><li>Soft robotics</li><li>Experimental systems</li></ul>
+      <section class="stats" aria-label="Research at a glance"><div><strong>8</strong><span>papers published<br>or accepted</span></div><div><strong>3</strong><span>manuscripts<br>under review</span></div><div><strong>2016</strong><span>started building<br>competition robots</span></div><div><strong>2027</strong><span>expected PhD<br>graduation</span></div></section>
+      <div class="section-heading"><h3>Research in focus</h3><a href="#research">All projects ↗</a></div><div class="focus-grid"><a class="focus-card" href="#research"><img src="./assets/img/shoal.jpg" alt="SHOAL experimental platform" width="1200" height="721"><div><span class="theme-kicker">01 / Physical learning</span><h4>Experiments that inform learning</h4><p>REEF · SHOAL · HydroWrench</p></div><span class="card-arrow" aria-hidden="true">↗</span></a><a class="focus-card" href="#videos"><img src="./assets/img/lts_outdoor.jpg" alt="Quadrupedal swimming robot" width="1400" height="800"><div><span class="theme-kicker">02 / Aquatic robotics</span><h4>Models, policies and swimming robots</h4><p>ICRA 2025 and 2026 demonstrations</p></div><span class="card-arrow" aria-hidden="true">↗</span></a></div>
+      <section class="news-block" id="news"><div class="section-heading"><h3>Recent updates</h3><span class="muted">2026</span></div><ol class="news">
+      <li><time>Oct 2026</time><p><strong>REEF</strong> is under review at <strong>Nature Mechanical Engineering</strong>. The manuscript is available on <a href="https://arxiv.org/abs/2609.14254" target="_blank" rel="noopener">arXiv</a>.</p></li>
+      <li><time>Sep 2026</time><p><strong>From Gaits to Routes</strong> is under review at ICRA 2027; <strong>HydroWrench</strong> is under review at ICLR 2027.</p></li>
+      <li><time>2026</time><p><strong>Swimming Under Constraints</strong> accepted to ICRA 2026; co-first and co-corresponding author.</p></li></ol><details class="older-news"><summary>Earlier updates</summary><ol class="news"><li><time>Apr 2026</time><p>Started the April–October visiting appointment at Penn State University.</p></li><li><time>2025</time><p><strong>Learn to Swim</strong> published at ICRA 2025.</p></li><li><time>2023</time><p>Storm-petrel learning research published in <em>Bioinspiration &amp; Biomimetics</em>.</p></li></ol></details></section></section><section class="panel" id="research" aria-labelledby="tab-research" tabindex="0"><h2 class="section-title">Research projects</h2><p class="section-intro">My work links experimental systems with models and learning algorithms. The REEF platform and quadruped swimmer are parallel parts of a continuing doctoral research program.</p><article class="theme"><figure class="theme-media"><img src="./assets/img/shoal.jpg" alt="SHOAL experimental array" loading="lazy" class=""></figure><div class="theme-body"><p class="project-date">Dec 2023 – present · Doctoral research</p><h3>REEF and learning in real fluids</h3><p>Contribute to the REEF platform and learning-control pipeline: synchronized experiments, force-feedback data, hydrodynamic modeling, imitation learning, offline learning and online adaptation. Related work develops HydroWrench, a dataset and benchmark for dynamic-load reconstruction.</p><p class="theme-refs">Nature Mechanical Engineering · Under review / HydroWrench · ICLR 2027 · Under review</p></div></article><article class="theme"><figure class="theme-media"><img src="./assets/img/lts_outdoor.jpg" alt="Quadrupedal swimming robot in an outdoor pond" loading="lazy" class=""></figure><div class="theme-body"><p class="project-date">Dec 2023 – present · Parallel work with REEF</p><h3>Quadruped swimming and robot learning</h3><p>Collect experimental force data and build an LSTM hydrodynamic model for multi-objective gait optimization. Study safe reinforcement learning, leg-phase coordination, swimming behavior planning and skill distillation, connecting single-leg experiments with whole-robot validation.</p><p class="theme-refs">Learn to Swim · ICRA 2025 / Swimming Under Constraints · ICRA 2026 / From Gaits to Routes · ICRA 2027</p></div></article><div class="service-card"><h3>Applied collaboration with DEEP Robotics</h3><p class="project-date">Arctic expedition application · Aug 2025</p><p>The collaboration adopted my force-testing, modeling and motion-parameter-optimization framework. I participated in discussions on specialized foot design as a project contributor.</p></div><h3 class="section-subtitle">Visiting and earlier research</h3><div class="service-card"><p class="project-date">Apr – Oct 2026 · Pennsylvania State University</p><h3>Multilegged swimming</h3><p>Visiting research on reduced-order dynamics, numerical simulation and experiment design for multilegged swimming.</p></div><article class="theme"><figure class="theme-media"><img src="./assets/img/petrel_model.jpg" alt="Storm-petrel morphological model" loading="lazy" class="fit"></figure><div class="theme-body"><p class="project-date">Jul 2022 – Oct 2023 · Westlake University</p><h3>Storm-petrel locomotion</h3><p>Combine air–water modeling with deep reinforcement learning to study pattering and sea-anchoring. This project began during my research-assistant appointment and continued into the beginning of my PhD.</p><p class="theme-refs">Bioinspiration &amp; Biomimetics · 2023 · Co-first author</p></div></article><article class="theme"><figure class="theme-media"><img src="./assets/img/soft-gripper.jpg" alt="Deep-sea soft gripper prototype" loading="lazy" class="fit"></figure><div class="theme-body"><p class="project-date">Sep 2019 – Jun 2022 · MEng research</p><h3>Deep-sea soft robotic gripper</h3><p>As a core student contributor, led structural design, fabrication, sensing and control development. Discussed technical approaches with my advisor and guided junior students in implementation and experiments. Also contributed to background research and preparation of project proposal materials.</p><p class="theme-refs">NSFC Major Research Plan Integrated Project 92048302 · Fundamental Research on Robots Combining Rigid, Flexible and Soft Structures for Operations in Extreme Environments</p></div></article><article class="theme"><figure class="theme-media"><img src="./assets/img/robomaster-team.webp" alt="RoboMaster robots and Zhengzhou University team" loading="lazy" class="fit"></figure><div class="theme-body"><p class="project-date">Sep 2016 – 2019 · Zhengzhou University</p><h3>RoboMaster development and team leadership</h3><p>Participated in the 2017, 2018 and 2019 seasons; captain in the 2017–2018 academic year and advisor in 2019. Developed STM32 hardware and C control software for infantry, hero, engineer, aerial and sentry robots. As captain, coordinated technical planning, task allocation, schedules and system integration.</p><p class="theme-refs">Embedded systems · Robot integration · Team coordination</p></div></article></section><section class="panel" id="publications" aria-labelledby="tab-publications" tabindex="0"><div class="section-head"><h2 class="section-title">Publications</h2><div class="filters" role="group" aria-label="Filter publications"><button class="chip is-active" data-filter="all">All</button><button class="chip" data-filter="published">Published / accepted</button><button class="chip" data-filter="review">Under review</button></div></div><p class="legend">* Equal contribution · ✉ Corresponding author · My name is in bold.</p><h3 class="pub-group" data-group="published">Published and accepted</h3><ol class="pubs"><li class="pub " data-status="published"><figure class="pub-thumb"><img src="./assets/img/saferl_framework.jpg" alt="Swimming Under Constraints: A Safe Reinforcement Learning Framework for Quadrupedal Bio-Inspired Propulsion" loading="lazy"></figure><div class="pub-body"><p class="venue"><span class="badge badge-pub">Accepted</span> ICRA 2026</p><h4>Swimming Under Constraints: A Safe Reinforcement Learning Framework for Quadrupedal Bio-Inspired Propulsion</h4><p class="authors">Xinyu Cui*, <b>Fei Han</b>*✉, Hang Xu, Yongcheng Zeng, Luoyang Sun, Ruizhi Zhang, Jian Zhao, Haifeng Zhang, Weikun Li, Hao Chen, Jun Wang, Dixia Fan✉</p><p class="tldr">Studies safe reinforcement learning for quadrupedal swimming, combining force constraints, leg-phase coordination and transfer from single-leg policies to whole-body motion.</p><div class="pub-links"><a href="https://arxiv.org/abs/2603.04073" target="_blank" rel="noopener">arXiv</a><a href="https://arxiv.org/pdf/2603.04073v1" target="_blank" rel="noopener">PDF</a><a href="#video-icra2026">Video</a><button data-bib="bib-saferl"><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>BibTeX</button></div></div></li><li class="pub " data-status="published"><figure class="pub-thumb"><img src="./assets/img/lts_experiment.jpg" alt="Learn to Swim: Data-Driven LSTM Hydrodynamic Model for Quadruped Robot Gait Optimization" loading="lazy"></figure><div class="pub-body"><p class="venue"><span class="badge badge-pub">Published</span> ICRA 2025 · pp. 10261–10267</p><h4>Learn to Swim: Data-Driven LSTM Hydrodynamic Model for Quadruped Robot Gait Optimization</h4><p class="authors"><b>Fei Han</b>, Pengming Guo, Hao Chen, Weikun Li, Jingbo Ren, Naijun Liu, Ning Yang, Dixia Fan✉</p><p class="tldr">Builds an LSTM hydrodynamic model from experimental force data and uses it for multi-objective swimming-gait optimization and robot validation.</p><div class="pub-links"><a href="https://doi.org/10.1109/ICRA55743.2025.11128080" target="_blank" rel="noopener">DOI</a><a href="https://arxiv.org/abs/2505.03146" target="_blank" rel="noopener">arXiv</a><a href="https://github.com/HanFei-hz/Dog_LSTM" target="_blank" rel="noopener">Code</a><a href="#video-icra2025">Video</a><button data-bib="bib-lts"><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>BibTeX</button></div></div></li><li class="pub " data-status="published"><figure class="pub-thumb"><img src="./assets/img/petrel_drl.jpg" alt="Exploring Storm Petrel Pattering and Sea-Anchoring Using Deep Reinforcement Learning" loading="lazy"></figure><div class="pub-body"><p class="venue"><span class="badge badge-pub">Published</span> Bioinspiration &amp; Biomimetics · 2023 · 18(6): 066016</p><h4>Exploring Storm Petrel Pattering and Sea-Anchoring Using Deep Reinforcement Learning</h4><p class="authors">Jiaqi Xue*, <b>Fei Han</b>*, Brett Klaassen van Oorschot, Glenna Clifton, Dixia Fan✉</p><p class="tldr">Combines a morphological model, air–water forces and deep reinforcement learning to study storm-petrel pattering and sea-anchoring behaviors.</p><div class="pub-links"><a href="https://doi.org/10.1088/1748-3190/ad00a2" target="_blank" rel="noopener">DOI</a><button data-bib="bib-petrel"><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>BibTeX</button></div></div></li><li class="pub pub-compact" data-status="published"><div class="pub-body"><p class="venue"><span class="badge badge-pub">Published</span> Physics of Fluids · 2023 · 35(10): 101914</p><h4>Force Decomposition on Flapping Flexible Plate via Impulse Theory and Dynamic Mode Decomposition</h4><p class="authors">Linlin Kang, Shiying Xiong, Buchen Wu, Chao Li, Mingming Ge, Dehan Yuan, <b>Fei Han</b>, Weicheng Cui</p><p class="tldr">Uses impulse theory and dynamic mode decomposition to analyze fluid forces on a flapping flexible plate.</p><div class="pub-links"><a href="https://doi.org/10.1063/5.0169989" target="_blank" rel="noopener">DOI</a></div></div></li><li class="pub pub-compact" data-status="published"><div class="pub-body"><p class="venue"><span class="badge badge-pub">Published</span> Physics of Fluids · 2023 · 35(9): 091904</p><h4>Propulsive Performance and Vortex Dynamics of Jellyfish-like Propulsion with Burst-and-Coast Strategy</h4><p class="authors">Linlin Kang, An-Kang Gao, <b>Fei Han</b>, Weicheng Cui, Xi-Yun Lu</p><p class="tldr">Examines the propulsion and vortex dynamics of jellyfish-like motion using a burst-and-coast strategy.</p><div class="pub-links"><a href="https://doi.org/10.1063/5.0160878" target="_blank" rel="noopener">DOI</a></div></div></li><li class="pub " data-status="published"><figure class="pub-thumb"><img src="./assets/img/soft-gripper.jpg" alt="Design of a Composite-Cavity Bioinspired Soft Hand for Underwater Grasping" loading="lazy"></figure><div class="pub-body"><p class="venue"><span class="badge badge-pub">Published</span> Robot · 2023 · 45(2): 207–217 · In Chinese</p><h4>Design of a Composite-Cavity Bioinspired Soft Hand for Underwater Grasping</h4><p class="authors"><b>Fei Han</b>, Daohui Zhang, Xingang Zhao, et al.</p><p class="tldr">Develops a composite-cavity soft gripper for underwater manipulation, covering structural design, fabrication and experimental evaluation.</p><div class="pub-links"><a href="https://doi.org/10.13973/j.cnki.robot.210473" target="_blank" rel="noopener">DOI</a></div></div></li><li class="pub " data-status="published"><figure class="pub-thumb"><img src="./assets/img/soft-gripper-control.webp" alt="Human-Robot Interaction Control of a Soft Hand Based on a Curvature Prediction Model" loading="lazy"></figure><div class="pub-body"><p class="venue"><span class="badge badge-pub">Published</span> Automation &amp; Instrumentation · 2022 · 37(7): 43–47 · In Chinese</p><h4>Human-Robot Interaction Control of a Soft Hand Based on a Curvature Prediction Model</h4><p class="authors"><b>Fei Han</b>, Daohui Zhang, Xingang Zhao</p><p class="tldr">Models soft-finger bending with an LSTM predictor and develops human–robot interaction control with a data glove.</p><div class="pub-links"><a href="https://doi.org/10.19557/j.cnki.1001-9944.2022.07.009" target="_blank" rel="noopener">DOI</a></div></div></li><li class="pub pub-compact" data-status="published"><div class="pub-body"><p class="venue"><span class="badge badge-pub">Published</span> IEEE ROBIO · 2021</p><h4>An Underwater Soft Claw Based on Bionic Principle</h4><p class="authors">Yanxu Sun, <b>Fei Han</b>, Daohui Zhang, Xingang Zhao, Dan Ye</p><p class="tldr">Investigates the design and operation of a bioinspired soft claw for underwater grasping.</p><div class="pub-links"></div></div></li></ol><h3 class="pub-group" data-group="review">Under review</h3><ol class="pubs"><li class="pub " data-status="review"><figure class="pub-thumb"><img src="./assets/img/reef_overview.jpg" alt="Embracing Flow Unsteadiness: A High-Throughput Learning Platform Enables Vortex-Exploiting Bioinspired Propulsion" loading="lazy"></figure><div class="pub-body"><p class="venue"><span class="badge badge-review">Under review</span> Nature Mechanical Engineering</p><h4>Embracing Flow Unsteadiness: A High-Throughput Learning Platform Enables Vortex-Exploiting Bioinspired Propulsion</h4><p class="authors"><b>Fei Han</b>*, Xinyu Cui*, Zhipeng Wang*, Ning Yang, Hang Xu, Haifeng Zhang, Zhongming Hu, Jun Wang, Junfeng Du, Dixia Fan✉</p><p class="tldr">REEF combines the SHOAL experimental platform with imitation, offline and online learning to study propulsion policies that exploit unsteady fluid interactions.</p><div class="pub-links"><a href="https://arxiv.org/abs/2609.14254" target="_blank" rel="noopener">arXiv</a><a href="https://arxiv.org/pdf/2609.14254v1" target="_blank" rel="noopener">PDF</a><button data-bib="bib-reef"><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>BibTeX</button></div></div></li><li class="pub pub-compact" data-status="review"><div class="pub-body"><p class="venue"><span class="badge badge-review">Under review</span> ICRA 2027</p><h4>From Gaits to Routes: Execution-Aware Hybrid Behavior Planning for Quadrupedal Swimming with Experiment-Calibrated Hydrodynamics</h4><p class="tldr">Studies hybrid behavior planning and skill distillation for quadrupedal swimming in an experiment-calibrated hydrodynamic simulator.</p><div class="pub-links"></div></div></li><li class="pub pub-compact" data-status="review"><div class="pub-body"><p class="venue"><span class="badge badge-review">Under review</span> ICLR 2027</p><h4>HydroWrench: A Dataset and Benchmark for Dynamic Load Reconstruction in Bioinspired Aquatic Mechanisms</h4><p class="tldr">Builds a dataset and evaluation benchmark for reconstructing dynamic loads from motion commands in bioinspired aquatic mechanisms.</p><div class="pub-links"></div></div></li></ol><p class="more">Also on <a href="https://scholar.google.com/citations?user=3WVj0IoAAAAJ" target="_blank" rel="noopener">Google Scholar</a>.</p></section><section class="panel" id="videos" aria-labelledby="tab-videos" tabindex="0"><h2 class="section-title">ICRA videos</h2><p class="section-intro">Quadrupedal swimming experiments on hydrodynamic modeling, gait optimization and safe reinforcement learning.</p><div class="videos"><figure class="video-card" id="video-icra2025"><div class="video-frame"><video controls preload="metadata" playsinline poster="./assets/img/icra2025-video-poster.jpg"><source src="./assets/videos/icra2025.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><figcaption><span class="badge badge-pub">ICRA 2025</span> Learn to Swim</figcaption></figure><figure class="video-card" id="video-icra2026"><div class="video-frame"><video controls preload="metadata" playsinline poster="./assets/img/icra2026-video-poster.jpg"><source src="./assets/videos/icra2026.mp4" type="video/mp4">Your browser does not support HTML video.</video></div><figcaption><span class="badge badge-pub">ICRA 2026</span> Swimming Under Constraints</figcaption></figure></div></section><section class="panel" id="experience" aria-labelledby="tab-experience" tabindex="0"><h2 class="section-title">Education and experience</h2><h3 class="section-subtitle">Education</h3><ol class="timeline"><li><time>Aug 2023 – Jun 2027 (expected)</time><h4>PhD · Westlake University</h4><p>Computer Science and Technology · Advisor: Prof. Dixia Fan.</p></li><li><time>Sep 2019 – Jun 2022</time><h4>MEng · University of Chinese Academy of Sciences</h4><p>Pattern Recognition and Intelligent Systems. Research at the State Key Laboratory of Robotics, Shenyang Institute of Automation, Chinese Academy of Sciences.</p></li><li><time>Sep 2015 – Jul 2019</time><h4>BEng · Zhengzhou University</h4><p>Measurement and Control Technology and Instruments.</p></li></ol><h3 class="section-subtitle">Research appointments</h3><ol class="timeline"><li><time>Apr – Oct 2026</time><h4>Visiting Scholar · Pennsylvania State University</h4><p>Multilegged swimming: reduced-order models, numerical simulation and experiment design.</p></li><li><time>Jul 2022 – Aug 2023</time><h4>Research Assistant · Westlake University</h4><p>Storm-petrel locomotion research, modeling, data analysis and scientific writing.</p></li></ol><h3 class="section-subtitle">Research timeline</h3><ol class="timeline"><li><time>Dec 2023 – present</time><h4>Bioinspired propulsion and robot learning</h4><p>REEF and quadruped swimming experiments developed in parallel; papers are milestones within this continuing research.</p></li><li><time>Jul 2022 – Oct 2023</time><h4>Storm-petrel locomotion</h4><p>Research-assistant stage through early PhD study.</p></li><li><time>Sep 2019 – Jun 2022</time><h4>Deep-sea soft robotic gripper</h4><p>Personal MEng research period; design, fabrication, sensing, control and proposal preparation.</p></li><li><time>Sep 2016 – 2019</time><h4>RoboMaster</h4><p>Captain, 2017–2018 academic year; advisor, 2019 season.</p></li></ol><h3 class="section-subtitle">Download a CV</h3><p class="section-intro">Two-page CVs with a homepage QR code. Choose the research context and language.</p><div class="cv-downloads"><article class="cv-option"><h3>Industry research</h3><p>Projects, technical contributions and team leadership.</p><div class="pub-links"><a href="./assets/files/cv-industry-en.pdf" target="_blank" rel="noopener" lang="en">English PDF <svg class="ic" aria-hidden="true"><use href="#i-pdf"/></svg></a><a href="./assets/files/cv-industry-zh.pdf" target="_blank" rel="noopener" lang="zh-CN">中文 PDF <svg class="ic" aria-hidden="true"><use href="#i-pdf"/></svg></a></div></article><article class="cv-option"><h3>Academic research</h3><p>Research, publications and academic service.</p><div class="pub-links"><a href="./assets/files/cv-academic-en.pdf" target="_blank" rel="noopener" lang="en">English PDF <svg class="ic" aria-hidden="true"><use href="#i-pdf"/></svg></a><a href="./assets/files/cv-academic-zh.pdf" target="_blank" rel="noopener" lang="zh-CN">中文 PDF <svg class="ic" aria-hidden="true"><use href="#i-pdf"/></svg></a></div></article></div><h3 class="section-subtitle">Selected honors</h3><ul class="achievement-list"><li><time>2017 / 2018</time><p>RoboMaster · Third Prize in the 2017 Western Regional and 2018 Central Regional competitions.</p></li><li><time>2017</time><p>National Undergraduate Electronics Design Contest · Second Prize, Henan Region, undergraduate division.</p></li><li><time>2018</time><p>Zhengzhou University “Creating Youth” Entrepreneurship Competition · Special Prize for the 3D Scanner project.</p></li></ul></section><section class="panel" id="life" aria-labelledby="tab-life" tabindex="0"><h2 class="section-title">Service and community</h2><p class="section-intro">Teaching through outreach, organizing exchanges and contributing to campus life are part of my development as a researcher.</p><div class="service-grid"><article class="service-card"><h3>IROS 2025 campus visits and exchange</h3><p>As a core organizer and presenter for laboratory-hosted visits to Westlake University, welcomed professors, researchers and industry guests. Introduced the university, laboratory research and results, and discussed bioinspired robotics, fluid mechanics and intelligent control.</p></article><article class="service-card"><h3>Laboratory open days and science outreach</h3><p>Repeatedly hosted primary and secondary school visits organized by the School of Engineering, introducing research platforms and explaining bioinspired robotics and fluid mechanics.</p></article><article class="service-card"><h3>Conference volunteering</h3><p>Supported conference organization and on-site service at an intelligent-fluids academic meeting hosted by the School of Engineering.</p></article><article class="service-card"><h3>Undergraduate residential-college exchanges</h3><p>Shared research experiences and reflections on postgraduate study as a senior graduate student, helping undergraduates explore research and future study.</p></article><article class="service-card"><h3>Westlake University Xinyue Choir</h3><p>Participated in group rehearsals and university performances, learning through musical practice and collaboration.</p></article><article class="service-card"><h3>Exercise and life outside research</h3><p>Maintain regular exercise alongside research, with interests in badminton, fitness, singing and photography.</p></article></div><h3 class="section-subtitle">Engineering memories</h3><div class="archive-gallery"><figure><img src="./assets/img/robomaster-team.webp" alt="RoboMaster team and robot platforms" loading="lazy"><figcaption>RoboMaster robots and team during undergraduate study.</figcaption></figure><figure><img src="./assets/img/soft-gripper-control.webp" alt="Data-glove interaction with a soft robotic hand" loading="lazy"><figcaption>Data-glove interaction experiments with the soft gripper during MEng research.</figcaption></figure></div><h3 class="section-subtitle">Code and tools</h3><ul class="repos"><li><a href="https://github.com/HanFei-hz/Dog_LSTM" target="_blank" rel="noopener"><b>Dog_LSTM</b><span>LSTM hydrodynamics and gait optimization</span></a></li><li><a href="https://github.com/HanFei-hz/Leg_offlineDRL" target="_blank" rel="noopener"><b>Leg_offlineDRL</b><span>Offline reinforcement learning for a swimming leg</span></a></li><li><a href="https://github.com/HanFei-hz/WaterLily" target="_blank" rel="noopener"><b>WaterLily</b><span>CFD experiments for flapping and undulating bodies</span></a></li><li><a href="./assets/files/rl_explorer.html" target="_blank" rel="noopener"><b>RL Explorer</b><span>Interactive reinforcement-learning knowledge graph (English)</span></a></li></ul></section>
+<footer class="footer"><p>© 2026 Fei Han</p><p>Updated October 2026</p></footer></main></div>
+<dialog class="bib-dialog" id="bib-dialog"><form method="dialog"><div class="bib-head"><strong>BibTeX</strong><div><button type="button" class="chip" id="bib-copy">Copy</button><button class="chip">Close</button></div></div><pre id="bib-text"></pre></form></dialog>
+<template id="bib-reef">@article{han2026reef,
   title   = {Embracing Flow Unsteadiness: A High-Throughput Learning Platform Enables Vortex-Exploiting Bioinspired Propulsion},
   author  = {Han, Fei and Cui, Xinyu and Wang, Zhipeng and Yang, Ning and Xu, Hang and Zhang, Haifeng and Hu, Zhongming and Wang, Jun and Du, Junfeng and Fan, Dixia},
   journal = {arXiv preprint arXiv:2609.14254},
   year    = {2026},
   doi     = {10.48550/arXiv.2609.14254}
 }</template>
-  <template id="bib-saferl">@inproceedings{cui2026swimming,
+<template id="bib-saferl">@inproceedings{cui2026swimming,
   title     = {Swimming Under Constraints: A Safe Reinforcement Learning Framework for Quadrupedal Bio-Inspired Propulsion},
   author    = {Cui, Xinyu and Han, Fei and Xu, Hang and Zeng, Yongcheng and Sun, Luoyang and Zhang, Ruizhi and Zhao, Jian and Zhang, Haifeng and Li, Weikun and Chen, Hao and Wang, Jun and Fan, Dixia},
   booktitle = {2026 IEEE International Conference on Robotics and Automation (ICRA)},
   year      = {2026},
   note      = {arXiv:2603.04073}
 }</template>
-  <template id="bib-lts">@inproceedings{han2025learn,
+<template id="bib-lts">@inproceedings{han2025learn,
   title     = {Learn to Swim: Data-Driven LSTM Hydrodynamic Model for Quadruped Robot Gait Optimization},
   author    = {Han, Fei and Guo, Pengming and Chen, Hao and Li, Weikun and Ren, Jingbo and Liu, Naijun and Yang, Ning and Fan, Dixia},
   booktitle = {2025 IEEE International Conference on Robotics and Automation (ICRA)},
@@ -313,7 +67,7 @@
   year      = {2025},
   doi       = {10.1109/ICRA55743.2025.11128080}
 }</template>
-  <template id="bib-petrel">@article{xue2023exploring,
+<template id="bib-petrel">@article{xue2023exploring,
   title   = {Exploring storm petrel pattering and sea-anchoring using deep reinforcement learning},
   author  = {Xue, Jiaqi and Han, Fei and Klaassen van Oorschot, Brett and Clifton, Glenna and Fan, Dixia},
   journal = {Bioinspiration \& Biomimetics},
@@ -323,10 +77,8 @@
   year    = {2023},
   doi     = {10.1088/1748-3190/ad00a2}
 }</template>
-
-  <script src="./assets/js/main.js?v=tabs-1"></script>
-  <!-- Cloudflare Web Analytics -->
-  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4a9b78b9961f4cfc9258f3010cb69058"}'></script>
-  <!-- End Cloudflare Web Analytics -->
-</body>
-</html>
+<script src="./assets/js/main.js?v=20261021"></script>
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "4a9b78b9961f4cfc9258f3010cb69058"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body></html>
