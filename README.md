@@ -22,6 +22,8 @@ assets/files/           CV and the RL Explorer page
 - **Publications:** edit the `PAPERS` list. Status is `published`, `accepted` or `review`; accepted papers share the published/accepted filter. Keep summaries focused on the work, without performance metrics.
 - **BibTeX:** edit `content/shared.html` and refer to the template ID in the paper entry. The REEF BibTeX cites the public arXiv version; its visible manuscript status is Nature Mechanical Engineering, under review.
 - **Research periods:** use confirmed personal participation periods, not publication years or fund execution dates. RoboMaster participation was September 2016–2019; captain in the 2017–2018 academic year, advisor for the 2019 season.
+- **Doctoral training:** Westlake University–Zhejiang University joint PhD training. The doctoral research laboratory is Westlake's [i4FSI Lab](https://i4fsi.lab.westlake.edu.cn/).
+- **Visiting collaboration:** the Penn State visit in [Baxi Chong's LiBR Lab](https://sites.psu.edu/libr/team/) is April–October 2026. The multilegged-swimming project continues with researchers from Harvard, CMU and other institutions; the manuscript is in preparation and is not counted among submitted or accepted papers.
 - **CVs:** replace `assets/files/cv-{industry,academic}-{en,zh}.pdf`. All four are two-page PDFs with labeled email and website links and a homepage QR code. `CV-Fei.pdf` remains as an alias to the English academic version for older links.
 - **Video:** put the MP4 in `assets/videos/` with the name listed there.
 
